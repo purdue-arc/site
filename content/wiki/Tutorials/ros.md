@@ -135,7 +135,7 @@ Upon running this, two windows should appear:
 ![Snake Sim](assets/images/snake-sim.PNG)
 ![Snake control](assets/images/snake-sim-control-board.PNG)
 
-If these windows don't appear, but every other command ran fine, then X forwarding is likely not working. Review the [X forwarding]() tutorial and if nothing works, then reach out in the comments.
+If these windows don't appear, but every other command ran fine, then X forwarding is likely not working. Review the [X forwarding](/wiki/tutorials/x-forwarding) tutorial and if nothing works, then reach out in the comments.
 
 If they did appear however, then your dev environment is fully working!
 
@@ -147,7 +147,7 @@ The environment you tested in the last section will serve as a simple platform t
 
 Check out the [video we made to introduce this section of the tutorial](https://youtu.be/q9RCP4lizNM).
 
-After watching the above video, you can move on to the [walkthrough](/wiki/tutorials/snake-tutorial).
+After watching the above video, you can move on to the [walkthrough](/wiki/tutorials/snake-game).
 
 ## Moving Forward
 
