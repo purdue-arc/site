@@ -162,13 +162,13 @@ Playing chess is more than just picking and placing pieces. The robot needs to a
 
 We can do this using a computer vision techniques with an image of the current chessboard as an input and the FEN notation of to board as an output. The following diagram shows this visually:
 
-```mermaid
+{{<mermaid>}}
 graph LR
   a1[Real chessboard] --> a2[2D chessboard] 
   a2 --> a3[FEN Notation] 
   a3 --> a4[Chess Engine]
   a2 --> a5[Virtual human player]
-```
+{{</mermaid>}}
 Some external projects we plan to use to complete the above:
 - [Real chessboard -> 2D chessboard](https://github.com/maciejczyzewski/neural-chessboard)
 - [2D chessboard -> FEN Notation](https://github.com/Elucidation/tensorflow_chessbot)
