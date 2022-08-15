@@ -1,0 +1,364 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – Robot Arm</title><link>purduearc.com/wiki/active-projects/robot-arm/</link><description>Recent content in Robot Arm on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><atom:link href="purduearc.com/wiki/active-projects/robot-arm/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: Software</title><link>purduearc.com/wiki/active-projects/robot-arm/software/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/active-projects/robot-arm/software/</guid><description>
+&lt;blockquote>
+&lt;p>If you want to look at code and run some of it, check out &lt;a href="https://github.com/purdue-arc/arc_robot_arm">arc_robot_arm&lt;/a> README for quick start details and usage instructions.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="how-to-use-this-if-youre-new">How to use this if you&amp;rsquo;re new&lt;/h2>
+&lt;p>From the diagram and subsection descriptions, you can hopefully get a preliminary high-level understanding of each of the parts and how they fit together.&lt;/p>
+&lt;p>From this, you can then:&lt;/p>
+&lt;ol>
+&lt;li>Choose which subsection interests you most&lt;/li>
+&lt;li>Follow links in the specified subsection to get more contextual understanding (Optionally ask questions in the Discord, hop in a voice chat, etc for more fun convo about the area)&lt;/li>
+&lt;li>Ensure you understand the related topics for each subsections with practical understanding/experience by completing a step-by-step tutorial (either use google to find one or ask for suggestions in Discord), ensuring that it uses the related topics (&lt;strong>Can be done concurrently with #2&lt;/strong>)&lt;/li>
+&lt;li>At this point, you should have enough knowledge/experience in your subsection to contribute to the current approach and possibly even change what the current approach is if you find better ways to do things (if so, update these docs!)&lt;/li>
+&lt;/ol>
+&lt;h2 id="system-overview">System Overview&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">graph
+subgraph Behavior Planning
+BP1[Behavior Planner]
+BP2[Chess Engine or Human]
+%% BP3[RL Policy]
+end
+subgraph Low Level
+direction LR
+LL1[Protoarm ROS Controller]
+LL2[driver]
+LL3[servos]
+end
+subgraph Simulation
+direction LR
+S1[Gazebo ROS Controller]
+S2[Simulated robot joints from URDF]
+end
+subgraph Vision
+direction LR
+V1[YOLOv5 Object Detector ROS node]
+V2[Chessboard Detector]
+end
+subgraph Planning/Control
+PC1[Visual Servoing ROS node]
+PC2[MoveTo C++ ROS node]
+PC3[MoveIt]
+end
+%% Low level
+LL2 -- servo position PWM --&amp;gt; LL3
+LL3 -- potentiometer feedback \- not done --&amp;gt; LL2
+LL1 --&amp;gt; LL2
+%% Behavior Planning
+BP2 --&amp;gt; BP1
+BP1 --&amp;gt; PC1
+%% Vision
+V2 --&amp;gt; BP1
+V1 --&amp;gt; PC1
+%% Simulation
+S1 --&amp;gt; S2
+%% Planning/Control
+PC1 --&amp;gt; PC2
+PC2 --&amp;gt; PC3
+PC3 --&amp;gt; S1
+PC3 --&amp;gt; LL1
+%% Links
+click LL1 href &amp;#34;http://wiki.purduearc.com/wiki/robot-arm/software#controller&amp;#34; &amp;#34;Sensors&amp;#34;
+click LL2 href &amp;#34;http://wiki.purduearc.com/wiki/robot-arm/software#driver&amp;#34; &amp;#34;Sensors&amp;#34;
+click PC1 href &amp;#34;http://wiki.purduearc.com/wiki/robot-arm/software#visual-servoing&amp;#34; &amp;#34;Sensors&amp;#34;
+click PC2 href &amp;#34;http://wiki.purduearc.com/wiki/robot-arm/software#kinematics-and-planning&amp;#34; &amp;#34;Sensors&amp;#34;
+click PC3 &amp;#34;https://moveit.ros.org/assets/images/diagrams/moveit_pipeline.png&amp;#34; &amp;#34;Open this in a new tab&amp;#34; _blank
+click BP1 href &amp;#34;http://wiki.purduearc.com/wiki/robot-arm/software#behavior-planner&amp;#34; &amp;#34;Sensors&amp;#34;
+click S1 href &amp;#34;http://wiki.purduearc.com/wiki/robot-arm/software#simulation&amp;#34; &amp;#34;Sensors&amp;#34;
+click S2 href &amp;#34;http://wiki.purduearc.com/wiki/robot-arm/software#simulation&amp;#34; &amp;#34;Sensors&amp;#34;
+click V1 href &amp;#34;http://wiki.purduearc.com/wiki/robot-arm/software#chess-piece-detection&amp;#34; &amp;#34;Sensors&amp;#34;
+click V2 href &amp;#34;http://wiki.purduearc.com/wiki/robot-arm/software#chessboard-detection&amp;#34; &amp;#34;Sensors&amp;#34;
+classDef not_started fill:#ff8181
+classDef in_progress fill:#ffba82
+classDef done fill:#81ff9b
+class BP1,LL1,BP2,BP3,V2 not_started
+class PC1 in_progress
+class S1,S2,LL2,LL3,V1,PC2,PC3 done
+&lt;/code>&lt;/pre>&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">graph
+l1[Not Started]
+l2[In Progress]
+l3[Done]
+classDef not_started fill:#ff8181
+classDef in_progress fill:#ffba82
+classDef done fill:#81ff9b
+class l1 not_started
+class l2 in_progress
+class l3 done
+&lt;/code>&lt;/pre>&lt;h2 id="high-level">High level&lt;/h2>
+&lt;h3 id="behavior-planner">Behavior Planner&lt;/h3>
+&lt;p>After the robot turns on or at any given point of time, what should the robot do? This is the job of the behavior planner.&lt;/p>
+&lt;p>Overall, it should output executable commands that return true or false if they are completed successfully and then output the next command. A preliminary decision flowchart that a robot can make is modeled here:&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">graph
+a1[Scanning for change in board state]
+p1[Virtual Human]
+p2[Engine]
+a3[Identify and pick up piece]
+a4[Identify destination and place piece]
+a1 -- 2d picture of board --&amp;gt; p1
+a1 -- FEN Notation of board--&amp;gt; p2
+p1 -- Next move --&amp;gt; a3
+p2 -- Next move --&amp;gt; a3
+a3 --&amp;gt; a4 --&amp;gt; a1
+&lt;/code>&lt;/pre>&lt;p>To implement the behavior planner, a Finite State Machine (FSM) and/or a Behavior Tree (BT) can be used, which both have tradeoffs in &lt;strong>modularity&lt;/strong> and &lt;strong>reactivity&lt;/strong>, (&lt;a href="https://roboticseabass.com/2021/05/08/introduction-to-behavior-trees/">read more&lt;/a>, scroll to the last section for ).&lt;/p>
+&lt;p>&lt;strong>Related Topics:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#ros">ROS&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#pythonnumpy">Python&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#fsm">FSM&lt;/a> and/or &lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#behavior-trees">BT&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="vision">Vision&lt;/h2>
+&lt;h3 id="chess-piece-detection">Chess Piece Detection&lt;/h3>
+&lt;p>How does our robot determine which piece is which and where is that piece relative to the arm? This is a common scenario in many real-world use cases and object detection, as the name suggests, is used to detect the chess pieces.&lt;/p>
+&lt;p>The object detection stack consists of the &lt;a href="https://github.com/ultralytics/yolov5">YOLOv5&lt;/a> object detection model trained on a custom dataset and outputs 2d bounding boxes. This can then be extrapolated to 3D coordinates from the camera intrinsics relative to the arm with some coordinate transformations from camera -&amp;gt; robot arm base.&lt;/p>
+&lt;p>For chess, the model is trained with a custom large chess piece dataset of 500+ images stored on &lt;a href="https://app.roboflow.com/">roboflow&lt;/a>. &lt;a href="https://colab.research.google.com/drive/1XJ82eVA0cEfTczXFMtV1sunqvsfiJWQ0?usp=sharing">Here&lt;/a> is a simple colab that walks through the training process using a Roboflow dataset.&lt;/p>
+&lt;p>Inference is using the &lt;code>yolov5_pytorch_ros&lt;/code> ROS package using the &lt;code>detector&lt;/code> ROS node using Python/PyTorch, allowing it to communicate detections and classes to other nodes such as for visual servoing. It reaches around 15-20 FPS without a GPU on a Mac.&lt;/p>
+&lt;blockquote>
+&lt;p>See &lt;a href="https://github.com/purdue-arc/arc_robot_arm/tree/main/chess_piece_detector">chess_piece_detector&lt;/a> for quick start details and usage instructions.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Related Topics:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#ros">ROS&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#pythonnumpy">Python&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#object-detection">Object Detection using YOLOv5&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#coordinate-transforms">Coordinate Transformations&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="chessboard-detection">Chessboard Detection&lt;/h3>
+&lt;p>Playing chess is more than just picking and placing pieces. The robot needs to actually beat the human. We need to know the exact state of the chessboard, so another person or an overpowered engine can say what move to play next.&lt;/p>
+&lt;p>We can do this using a computer vision techniques with an image of the current chessboard as an input and the FEN notation of to board as an output. The following diagram shows this visually:&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">graph LR
+a1[Real chessboard] --&amp;gt; a2[2D chessboard]
+a2 --&amp;gt; a3[FEN Notation]
+a3 --&amp;gt; a4[Chess Engine]
+a2 --&amp;gt; a5[Virtual human player]
+&lt;/code>&lt;/pre>&lt;p>Some external projects we plan to use to complete the above:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/maciejczyzewski/neural-chessboard">Real chessboard -&amp;gt; 2D chessboard&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Elucidation/tensorflow_chessbot">2D chessboard -&amp;gt; FEN Notation&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Related Topics:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#ros">ROS&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#pythonnumpy">Python&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#machine-learning">Machine Learning&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="control">Control&lt;/h2>
+&lt;h3 id="visual-servoing">Visual Servoing&lt;/h3>
+&lt;p>Even if we can see where the pieces are with the camera, how does the robot arm move closer to the chess piece it wants to pick up? Without visual servoing, any error that the robot makes cannot be accounted for and adjusted for accordingly, resulting in lots of fails. Visual servoing is a control algorithm using images as input to control for any errors that the robot makes.&lt;/p>
+&lt;p>We are using image-based visual servoing to localize the robot arm hand over an object in a graspable configuration, using images/2d bounding boxes as inputs to the system and servo commands as outputs.&lt;/p>
+&lt;img src="purduearc.com/wiki/active-projects/robot-arm/images/vs-diagram.png" alt="Diagram of controller" width="400"/>
+> Visual servoing system diagram ([source](https://www.researchgate.net/figure/Visual-servoing-closed-loop_fig1_265436696))
+&lt;p>See the &lt;code>protoarm_visual_servoing&lt;/code> package for more details.&lt;/p>
+&lt;p>&lt;strong>Related Topics:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#ros">ROS&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#pythonnumpy">Python&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#visual-servoing-1">Visual Servoing&lt;/a>&lt;/li>
+&lt;li>Usage of the MoveTo node&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#coordinate-transforms">Coordinate Transforms&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#robot-arm-kinematics">Robot Arm Kinematics&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="kinematics-and-planning">Kinematics and Planning&lt;/h3>
+&lt;p>As a human, it is simple to move our joints and pick something up in 3D space. For a robot arm, it knows nothing of 3D space, only numerical angles for each of its joints. So, we use &lt;a href="https://en.wikipedia.org/wiki/Inverse_kinematics">inverse kinematics&lt;/a> (IK), the mathematical process of converting 3D space coordinates to joint angles, to determine the final position for the robot arm.&lt;/p>
+&lt;p>Now what happens between the start and final position? That&amp;rsquo;s the job of the motion planner. It determines a safe collision-free trajectory for each joint and creates the plan. Then, the plan is executed, either in real life or in simulation.&lt;/p>
+&lt;p>As of now, all the kinematics and planning heavy lifting is done by &lt;a href="http://moveit.ros.org/">MoveIt&lt;/a>. The &lt;code>protoarm_kinematics&lt;/code> package houses a wrapper written in C++ that abstracts the process of sending &lt;a href="http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/JointState.html">JointState&lt;/a> or &lt;a href="http://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/Pose.html">Pose&lt;/a> goals.&lt;/p>
+&lt;p>The wrapper is interfaced externally using the &lt;code>move_to&lt;/code> node. Refer to the &lt;a href="https://github.com/purdue-arc/arc_robot_arm/blob/main/protoarm_kinematics/src/test_kinematics">test_kinematics&lt;/a> rospy file in &lt;code>protoarm_kinematics/src&lt;/code> for usage of the &lt;code>move_to&lt;/code> node.&lt;/p>
+&lt;p>This package is also where we would keep our custom kinematics plugin and planning library if we choose to make it from scratch, instead of the default &lt;a href="https://ros-planning.github.io/moveit_tutorials/doc/kinematics_configuration/kinematics_configuration_tutorial.html#the-kdl-kinematics-plugin">KDL&lt;/a> kinematics plugin and &lt;a href="https://ros-planning.github.io/moveit_tutorials/doc/ompl_interface/ompl_interface_tutorial.html">OMPL&lt;/a> motion planning library.&lt;/p>
+&lt;blockquote>
+&lt;p>See &lt;a href="https://github.com/purdue-arc/arc_robot_arm/tree/main/protoarm_kinematics">protoarm_kinematics&lt;/a> for quick start details and usage instructions.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Related Topics:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#ros">ROS&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#pythonnumpy">Python&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#moveit">MoveIt&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#coordinate-transforms">Coordinate Transforms&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#robot-arm-kinematics">Robot Arm Kinematics&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="low-level">Low level&lt;/h2>
+&lt;h3 id="controller">Controller&lt;/h3>
+&lt;p>&lt;code>protoarm_control&lt;/code> is the ROS package that ensures that MoveIt execution commands are executed exactly as expected and to a degree of certainty in the real world.&lt;/p>
+&lt;p>Right now, the driver communicates directly with MoveIt as the &lt;code>protoarm_control&lt;/code> package doesn&amp;rsquo;t exist yet and because we do not have servo feedback.&lt;/p>
+&lt;p>Given that the protoarm uses some of the cheapest servos on the market, how can we still get dependable sub-millimeter precision to do tasks reliably? One way to do so is to hack our servos to add encoders, and use a control scheme that can take velocity and torque into account.&lt;/p>
+&lt;p>Inspired by Adam&amp;rsquo;s &lt;a href="https://github.com/adamb314/ServoProject">Servo Project&lt;/a>.&lt;/p>
+&lt;p>&lt;strong>Related Topics:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#ros">ROS&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#pythonnumpy">Python&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#cascade-style-control">Cascade-style Control&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#encoders">Encoders&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="driver">Driver&lt;/h3>
+&lt;p>The &lt;code>protoarm_driver&lt;/code> is written in Arduino that actually interfaces with the servos and encoders. It sets joint limits, does coordinate frame conversions from the URDF to the actual robot, converts MoveIt angles to servo joint angles $$(-\pi,\pi)$$ to $$(0^\circ,180^\circ)$$, and executes servo commands using PWM to the servos.&lt;/p>
+&lt;p>&lt;strong>Related Topics:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#arduino">Arduino&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="simulation">Simulation&lt;/h2>
+&lt;h3 id="gazebo">Gazebo&lt;/h3>
+&lt;p>There are lots of benefits from simulation spanning from speeding up development and testing of software, realistic environments for reinforcement learning, and testing proof of concepts.&lt;/p>
+&lt;p>Our arm is simulated in Gazebo with a Realsense D435 camera (&lt;code>realsense_ros_gazebo&lt;/code>), chessboard, and chess pieces (&lt;code>chessboard_gazebo&lt;/code>). The robot arm and the camera are represented in &lt;a href="http://wiki.ros.org/urdf/XML/model">URDF&lt;/a>.&lt;/p>
+&lt;p>Sensors, actuation, gazebo plugins, and more are &lt;a href="http://wiki.ros.org/urdf/XML">specifications&lt;/a> that can be added. For the arm, these specifications exist in the &lt;code>.xacro&lt;/code> files in the &lt;code>urdf&lt;/code> folder of the &lt;code>protoarm_description&lt;/code> ROS package.&lt;/p>
+&lt;p>Gazebo uses SDF models (in &lt;code>models&lt;/code> folder of &lt;code>chessboard_gazebo&lt;/code>) to represent static assets in the simulation like the chess pieces and chessboard. These objects are then spawned into a Gazebo world (along with the robot URDF), represented with a &lt;code>.world&lt;/code> file.&lt;/p>
+&lt;blockquote>
+&lt;p>See &lt;a href="https://github.com/purdue-arc/arc_robot_arm/tree/main/protoarm_bringup">protoarm_bringup&lt;/a> for quick start details and usage instructions.&lt;/p>
+&lt;/blockquote>
+&lt;p>{% include googleDrivePlayer.html id=&amp;ldquo;19FZ7lsqCn6DEChjjdBgsTy0feUANYaVO/preview&amp;rdquo; %}&lt;/p>
+&lt;p>&lt;strong>Related Topics:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software#gazebo-1">Gazebo&lt;/a>&lt;/li>
+&lt;li>&lt;a href="">URDF&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h1 id="resources">Resources&lt;/h1>
+&lt;h2 id="tools">Tools&lt;/h2>
+&lt;h3 id="ros">ROS&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.purduearc.com/wiki/tutorials/snake-tutorial">ARC ROS tutorials (Recommended)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://wiki.ros.org/ROS/Tutorials">Official ROS tutorials&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="github">GitHub&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/">Learn Git under 10 min&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="c">C++&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.youtube.com/watch?v=18c3MTX0PK0&amp;amp;list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb">In depth tutorial playlist for C++&lt;/a>
+&lt;ul>
+&lt;li>Recommended topics:
+&lt;ul>
+&lt;li>if/else, loops, functions, classes&lt;/li>
+&lt;li>Pointers/References&lt;/li>
+&lt;li>Smart pointers&lt;/li>
+&lt;li>Dynamic Arrays (std::vector)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Very useful numeric libraries
+&lt;ul>
+&lt;li>&lt;a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen&lt;/a>: Extremely efficient matrix math library&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="pythonnumpy">Python/Numpy&lt;/h3>
+&lt;p>&lt;strong>Python&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.youtube.com/watch?v=rfscVS0vtbw">Tutorial&lt;/a>&lt;/li>
+&lt;li>Important topics to understand:
+&lt;ul>
+&lt;li>Basics are good - variables + logic, functions, classes&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Numpy&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>Must use when working with large arrays (i.e images)&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;a href="https://www.youtube.com/watch?v=8Y0qQEh7dJg">Tutorial&lt;/a>&lt;/li>
+&lt;li>Important topics to understand:
+&lt;ul>
+&lt;li>Creating arrays&lt;/li>
+&lt;li>slicing + indexing&lt;/li>
+&lt;li>reshaping&lt;/li>
+&lt;li>linear algebra&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>OpenCV&lt;/strong>:&lt;/p>
+&lt;blockquote>
+&lt;p>Use for computer vision and image transformations like color detection, tracking, etc&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;a href="https://www.youtube.com/watch?v=oXlwWbU8l2o">Tutorial&lt;/a>&lt;/li>
+&lt;li>Important topics to understand:
+&lt;ul>
+&lt;li>image transformation&lt;/li>
+&lt;li>thresholding&lt;/li>
+&lt;li>read/write images from file&lt;/li>
+&lt;li>resizing&lt;/li>
+&lt;li>tracking&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="arduino">Arduino&lt;/h3>
+&lt;ul>
+&lt;li>Top hit for &amp;ldquo;arduino tutorial&amp;rdquo; on google should work&lt;/li>
+&lt;/ul>
+&lt;h3 id="gazebo-1">Gazebo&lt;/h3>
+&lt;ul>
+&lt;li>Important topics (Googlable)
+&lt;ul>
+&lt;li>Creating a world&lt;/li>
+&lt;li>Adding assets&lt;/li>
+&lt;li>ROS control in Gazebo&lt;/li>
+&lt;li>Cameras in Gazebo&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="good-coding-practices">Good coding practices&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://cpp-optimizations.netlify.app/">Optimized C++ code&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>TODO&lt;/p>
+&lt;h2 id="algorithms-theory-math">Algorithms, Theory, Math&lt;/h2>
+&lt;h3 id="coordinate-transforms">Coordinate Transforms&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="http://faculty.salina.k-state.edu/tim/robotics_sg/Pose/Pose.html">Understanding the pose of a robot&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="fsms">FSMs&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.clear.rice.edu/engi128/Handouts/Lec17-Robotics.pdf">tutorial slideshow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="behavior-trees">Behavior Trees&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://roboticseabass.com/2021/05/08/introduction-to-behavior-trees/">intro to behavior trees&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="control-algorithms">Control Algorithms&lt;/h3>
+&lt;h4 id="pid-controller">PID Controller&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://ctms.engin.umich.edu/CTMS/index.php?example=Introduction&amp;amp;section=ControlPID">tutorial&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="cascade-controller">Cascade Controller&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/adamb314/ServoProject">Implememtation by Adam for Servo Project&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ai">AI&lt;/h3>
+&lt;h4 id="object-detection">Object Detection&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.roboflow.com/how-to-train-yolov5-on-a-custom-dataset/">train yolov5 model on custom dataset&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="machine-learning">Machine Learning&lt;/h4>
+&lt;h2 id="sensor-related">Sensor related&lt;/h2>
+&lt;h3 id="camera">Camera&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="">Camera driver ROS package&lt;/a>&lt;/li>
+&lt;li>&lt;a href="">Camera calibration ROS package&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="encoders">Encoders&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.arduino.cc/reference/en/libraries/encoder/">Arduino Encoder Package&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Wiki: Hardware</title><link>purduearc.com/wiki/active-projects/robot-arm/hardware/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/active-projects/robot-arm/hardware/</guid><description>
+&lt;h2 id="meet-the-robots">Meet the robots&lt;/h2>
+&lt;h3 id="protoarm">Protoarm&lt;/h3>
+&lt;p>This is protoarm (short for prototype arm), a 5-DOF robot arm adapted slightly from &lt;a href="https://www.youtube.com/watch?v=_B3gWd3A_SI">HowToMechatronics&amp;rsquo; model&lt;/a> that we built first to understand ROS, MoveIt, and the software stack for robot arms.&lt;/p>
+&lt;img src="purduearc.com/wiki/active-projects/robot-arm/images/protoarm.png" alt="Protoarm CAD" width="400"/>
+&lt;h3 id="bcn3d-moveo-arm">BCN3D Moveo Arm&lt;/h3>
+&lt;p>This is the &lt;a href="https://www.bcn3d.com/bcn3d-moveo-the-future-of-learning-robotic-arm/">BCN3D Moveo&lt;/a> arm that is fully open-source, built with steppers rather than cheap servos which have feedback control (a step up from the Protoarm), and is actually big enough to reach a full size chessboard. It also is much better designed and assembled than the Protoarm.&lt;/p>
+&lt;p>Quick links:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/BradyHooverDesigns/BCN3D-MOVEO-BOM">BOM&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/BCN3D/BCN3D-Moveo">CAD/Instructions&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;img src="purduearc.com/wiki/active-projects/robot-arm/images/moveo.jpg" alt="Moveo" width="400"/>
+&lt;h3 id="mr-janktastic">Mr. Janktastic&lt;/h3>
+&lt;p>Building a 6-DOF robot arm fully from scratch with Dynamixel Servos.&lt;/p>
+&lt;img src="purduearc.com/wiki/active-projects/robot-arm/images/janktastic.png" alt="Moveo" width="400"/>
+&lt;h2 id="resources">Resources&lt;/h2>
+&lt;h3 id="cad">CAD&lt;/h3>
+&lt;p>TODO&lt;/p>
+&lt;h3 id="manufacturing">Manufacturing&lt;/h3>
+&lt;h4 id="3d-printing">3D Printing&lt;/h4>
+&lt;p>TODO&lt;/p>
+&lt;h4 id="metal-manufacturing-tools">Metal Manufacturing tools&lt;/h4>
+&lt;p>TODO&lt;/p>
+&lt;h4 id="laser-cutting">Laser Cutting&lt;/h4>
+&lt;p>TODO&lt;/p></description></item><item><title>Wiki:</title><link>purduearc.com/wiki/active-projects/robot-arm/images/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/active-projects/robot-arm/images/</guid><description/></item></channel></rss>

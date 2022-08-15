@@ -1,0 +1,94 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – General Information</title><link>purduearc.com/wiki/general-information/</link><description>Recent content in General Information on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 05 Jan 2017 00:00:00 +0000</lastBuildDate><atom:link href="purduearc.com/wiki/general-information/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: BIDC Information</title><link>purduearc.com/wiki/general-information/bidc-info/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/general-information/bidc-info/</guid><description>
+&lt;p>ARC currently holds shop space at BIDC. Students can use this space for manufacturing and assembling parts, hosting project meetings and storing equipment.&lt;/p>
+&lt;p>Anyone looking to use the space must complete the required trainings. To do this, &lt;a href="https://www.openpassport.org/Group/PurdueBIDC">join the BIDC group on passport&lt;/a> and obtain the following badges:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.openpassport.org/Badge/Bechtel-Center-Membership/Criteria">Bechtel Center - Member Agreement&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.openpassport.org/Badge/AssemblyAgreement/Criteria">Bechtel Assembly - Member Agreement&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.openpassport.org/Badge/MakeAssemblySafe/Criteria">Bechtel Assembly - Safety &amp;amp; PPE&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Additional badges are required for manufacturing tasks such as using the drill press, vertical bandsaw, etc.&lt;/p>
+&lt;h2 id="card-swipe-access">Card Swipe Access&lt;/h2>
+&lt;p>BIDC only grants ARC a limited number of positions for people with card swipe access. Because of this, we try to equally divide those with access across each project.&lt;/p>
+&lt;p>To have a meeting at BIDC, you need to ensure at least one of the attending members will have swipe access to let everyone else in.&lt;/p>
+&lt;p>The current swipe list is:&lt;/p>
+&lt;ul>
+&lt;li>Rocket League
+&lt;ul>
+&lt;li>Harrison McCarty (mccarth at purdue.edu)&lt;/li>
+&lt;li>James Baxter (baxter26 at purdue.edu)&lt;/li>
+&lt;li>Robert Ketler (rketler at purdue.edu)&lt;/li>
+&lt;li>Justin Lee (lee3228 at purdue.edu)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Wizard Chess
+&lt;ul>
+&lt;li>Ilina Adhikari (iadhikar at purdue.edu)&lt;/li>
+&lt;li>Vinitha Marupeddi (vmaruped at purdue.edu)&lt;/li>
+&lt;li>Emma Block (block21 at purdue.edu)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Robot Arm
+&lt;ul>
+&lt;li>Raghava Uppuluri (ruppulur at purdue.edu)&lt;/li>
+&lt;li>Bronson Yen (yen22 at purdue.edu)&lt;/li>
+&lt;li>Sara Swanlund (sswanlun at purdue.edu)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Drone Delivery
+&lt;ul>
+&lt;li>Sooraj Chetput Venkataraghavan (schetput at purdue.edu)&lt;/li>
+&lt;li>Cade Jarrett (jarrettc at purdue.edu)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Piano Hand
+&lt;ul>
+&lt;li>Revanth Senthilkumaran (senthilr at purdue.edu)&lt;/li>
+&lt;li>Rugved Dikay (rdikay at purdue.edu)&lt;/li>
+&lt;li>Manas Paranjape (mparanja at purdue.edu)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="3d-printing">3D Printing&lt;/h2>
+&lt;p>ARC maintains two 3D printers within the shop space:&lt;/p>
+&lt;ul>
+&lt;li>Tony: Monoprice Maker Select 2&lt;/li>
+&lt;li>Chelsea: Creality CR-6 SE&lt;/li>
+&lt;/ul>
+&lt;p>If you have an interest in using either printer, reach out in the ARC discord under the &amp;ldquo;3D printing&amp;rdquo; channel.&lt;/p>
+&lt;p>The recommended printer profiles using the &lt;a href="https://ultimaker.com/software/ultimaker-cura">Cura Slicer&lt;/a>:&lt;/p>
+&lt;p>Chelsea Settings:&lt;/p>
+&lt;pre tabindex="0">&lt;code>Layer height: 0.15 mm
+Top thickness: 0.8
+Bottom thickness: 0.8
+Bottom layers: 6
+Infill density: 20%
+Print speed: 35.0 mm/s
+Cooling: 75%
+Raft supports are optional
+&lt;/code>&lt;/pre>&lt;p>Tony Settings:&lt;/p>
+&lt;pre tabindex="0">&lt;code>Print Speed: 50.0 mm/s
+Infill density: 15%
+Wall Thickness: 1.05 mm
+Top/Bottom Thickness: 0.72 mm
+Build Plate Temperature: 60 C
+Layer Height: 0.15 mm
+Initial Layer Height: 0.2625 mm
+Top/Bottom Layer Height: 0.8 mm
+Minimum Layer Time: 5s
+Minimum Speed: 10 mm/s
+Fan Speed: 100%
+Cooling: 100%
+&lt;/code>&lt;/pre>&lt;h2 id="advanced-manufacturing">Advanced Manufacturing&lt;/h2>
+&lt;p>TODO&lt;/p></description></item><item><title>Wiki: Club Tools and Links</title><link>purduearc.com/wiki/general-information/club-tools/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/general-information/club-tools/</guid><description>
+&lt;h2 id="purchases--reimbursements">Purchases &amp;amp; Reimbursements&lt;/h2>
+&lt;p>Purdue requires that each club operates under a reimbursement model. Meaning each purchase the club makes, must first be made by a student and then BOSO (Business Office for Student Organizations) will reimburse said student.&lt;/p>
+&lt;p>If you make a purchase for the club, use the following reimbursement form to request your check from BOSO. Once your reimbursement is submitted on our end, you should receive a confirmation. Checks usually take around a week.&lt;/p>
+&lt;p>&lt;a href="https://forms.gle/sBxnJ9DncH1YkZuu9">Reimbursement Form&lt;/a>&lt;/p>
+&lt;h2 id="requests-for-equipment-and-supplies">Requests for Equipment and Supplies&lt;/h2>
+&lt;p>Each project creates a budget at the beginning of each semester, which is then approved by the club&amp;rsquo;s board.&lt;/p>
+&lt;p>Additional expenses or supplies can be requested however for the shared space at BIDC. If you believe something would be nice to have in the shop space, request it at the following link:&lt;/p>
+&lt;p>&lt;a href="https://forms.gle/EvT8LFmFwFqxq5JFA">Equipment and Supplies Request Form&lt;/a>&lt;/p>
+&lt;h2 id="remote-work-and-hosting">Remote Work and Hosting&lt;/h2>
+&lt;p>Purdue hosts a server at BIDC for students to work remotely. Each account has been granted Docker permissions with plans to add additional features in the future.&lt;/p>
+&lt;p>If you are interested in obtaining an account, contact Harrison McCarty on the Discord.&lt;/p>
+&lt;p>Server address: &lt;code>bidc.purduearc.com&lt;/code>&lt;/p></description></item></channel></rss>

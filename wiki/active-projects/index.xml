@@ -1,0 +1,320 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – Active Projects</title><link>purduearc.com/wiki/active-projects/</link><description>Recent content in Active Projects on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><atom:link href="purduearc.com/wiki/active-projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: Rocket League</title><link>purduearc.com/wiki/active-projects/rocket-league/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/active-projects/rocket-league/</guid><description>
+&lt;h2 id="goal">Goal&lt;/h2>
+&lt;p>Build a system of autonomous, scaled vehicles to play head-to-head in a game of high-speed soccer. Inspiration draws from the game, Rocket League, in which rocket-powered vehicles play soccer in 3v3 matches.&lt;/p>
+&lt;p>Current tasks are aimed at creating an interactive demo, where a team of human controlled cars compete against a team of autonomous cars. Future work may entail using the working system to launch a multi-university competition. Teams would build their own autonomous strategies and face-off in a tournament bracket.&lt;/p>
+&lt;h2 id="system-overview">System Overview&lt;/h2>
+&lt;p>Our system is organized into several components, which function together to create an autonomous Rocket League car.&lt;/p>
+&lt;p>&lt;img src="images/system-overview.png" alt="System Overview">&lt;/p>
+&lt;p>The system consists of several specialized layers, which each reduce abstraction as information flows from the top of the diagram to the bottom. For example, a control effort (ex: put the steering wheel at 10 degrees) is less abstract than a collision goal (ex: hit the ball at position (3,5) cm in the (1,0) direction). Each layer refines the previous command until it is eventually something usable by the car&amp;rsquo;s hardware.&lt;/p>
+&lt;p>Each layer also utilizes feedback in order to correct errors. For example, the velocity controller may notice the car&amp;rsquo;s velocity is too fast, and then step slightly off the throttle to correct. Each layer uses a common perception system as a truth to compare against.&lt;/p>
+&lt;p>For more information on each layer / subsystem, see the below sections to learn more about its input and output, and how it processes it (including the software and languages in use).&lt;/p>
+&lt;h3 id="intercommunication">Intercommunication&lt;/h3>
+&lt;p>Like most ARC projects, Rocket League uses &lt;a href="https://www.ros.org/about-ros/">ROS&lt;/a> to handle communication between each component. ROS is compatible with the Python, C++, and Arduino used on the project.&lt;/p>
+&lt;blockquote>
+&lt;p>Documentation on setting up and learning about your ROS development evironment can be found &lt;a href="purduearc.com/wiki/tutorials/ros">here&lt;/a>.&lt;/p>
+&lt;/blockquote>
+&lt;!--
+This is way too high level for an overview, but it should eventually go on a different page
+The following was created Spring '21 to detail our ROS network:
+![ROS Network](ssets/images/ros-network.png) -->
+&lt;h3 id="high-level-planner">High Level Planner&lt;/h3>
+&lt;p>This component uses deep reinforcement learning in order to develop strategies for playing Rocket League. It is still being prototyped in Python, using PyTorch and Keras (Tensorflow). When complete, it will recieve the full state of the game, and output a collision goal (where, when, and in what direction to hit the ball) to the Mid Level Software stack.&lt;/p>
+&lt;p>An end-to-end model is also being considered, which would replace all of the Mid Level Software by increasing the complexity of the High Level Planner. If built, this would exist for comparison with the existing system for learning purposes.&lt;/p>
+&lt;blockquote>
+&lt;p>This is a component that will see a lot of attention during the Fall 2021 semester&lt;/p>
+&lt;/blockquote>
+&lt;p>It utilizes a simulator for training, which is described below.&lt;/p>
+&lt;h4 id="simulator">Simulator&lt;/h4>
+&lt;p>This component exists for training the High Level Planner, and testing / debugging Mid Level Software. It is written in Python, using the Box2D physics engine, and must realistically simulate all physical elements of the game. It can be used to replace everything below Mid Level Software (including the Velocity Controller and Perception) if the entire game is to be run in simulation.&lt;/p>
+&lt;h3 id="mid-level-sotware">Mid Level Sotware&lt;/h3>
+&lt;p>Together, the Trajectory Planner and Waypoint Controller (both implemented in Python) recieve a collision goal and are responsible for guiding the car to acheive the goal by outputting instantaneous velocity commands for the car.&lt;/p>
+&lt;h4 id="trajectory-planner">Trajectory Planner&lt;/h4>
+&lt;p>This component considers the car&amp;rsquo;s current location and velocity, and the collision goal, to generate a trajectory for the car to follow. It can operate in several modes to generate trajectories via different mathematical functions, and has many many many configurable settings.&lt;/p>
+&lt;h4 id="waypoint-controller">Waypoint Controller&lt;/h4>
+&lt;p>This component is what enables the car to follow the generated trajectories. It commands the car to follow specific velocities and wheel angles by applying the &lt;a href="https://www.mathworks.com/help/robotics/ug/pure-pursuit-controller.html#:~:text=Pure%20pursuit%20is%20a%20path,in%20front%20of%20the%20robot.&amp;amp;text=You%20can%20think%20of%20this,point%20in%20front%20of%20it.">pure pursuit algorithm&lt;/a> on the path given by the trajectory planner.&lt;/p>
+&lt;h3 id="velocity-controller">Velocity Controller&lt;/h3>
+&lt;p>This component (also called the low-level controller) adjusts the control efforts (specific throttle and steering values) such that the velocity and heading of the car matches the desired setpoint from the waypoint controller. It implements a PID controller, and is currently written in Python. Future work may see it ported to a different language, such as C++ or MATLAB.&lt;/p>
+&lt;h3 id="hardware-inferface">Hardware Inferface&lt;/h3>
+&lt;p>This component allows communication to occur between the ROS network and the RC car.&lt;/p>
+&lt;p>Control efforts to the car are broadcasted using a FrSky XJT transmitter. These messages are encoded by an Arduino script running on a Teensy 3.1, which communicates to the radio using a digital PPM signal. ROS Serial is used to send the desired efforts to be encoded to the Teensy from the ROS network.&lt;/p>
+&lt;p>An image of the hardware for one car is shown below:&lt;/p>
+&lt;p>&lt;img src="images/ros-interface.jpg" alt="ROS Interface Hardware">&lt;/p>
+&lt;h3 id="car">Car&lt;/h3>
+&lt;p>The car is the complete physical system of one player on the field. Tests were performed on off-the-shelf cars, however none met the desired criteria for acceleration and control. To solve this issue, the team upgraded the electronics of the best-tested car and found much increased performance.&lt;/p>
+&lt;div class="embed-container">
+&lt;iframe
+width="640"
+height="480"
+src="https://drive.google.com/file/d/1hoZkHQMXcIDrOJjSXYIXwCfNXiyw8jH6/preview"
+frameborder="0"
+allowfullscreen="">
+&lt;/iframe>
+&lt;/div>
+&lt;blockquote>
+&lt;p>Left: upgraded car, middle &amp;amp; right: stock cars&lt;/p>
+&lt;/blockquote>
+&lt;p>The car&amp;rsquo;s upgrades replaced the servo motors, receiver, speed controller, and battery.&lt;/p>
+&lt;blockquote>
+&lt;p>Documentation will be created in the Fall 2021 semester to have step-by-step upgrade instructions to build a matching car&lt;/p>
+&lt;/blockquote>
+&lt;!--
+TODO: include more info on car's specific upgrades
+TODO: include picture of car's upgrades
+-->
+&lt;h3 id="environment">Environment&lt;/h3>
+&lt;p>Work has been done towards creating a consistent environment for operating the cars and providing infrastructure for localization.&lt;/p>
+&lt;p>In Spring 2021, physical tests were performed on Krach&amp;rsquo;s carpet and used plywood planks to provide boundaries. Tripods with PVC tubes were also used to hold multiple cameras necessary for localization.&lt;/p>
+&lt;p>&lt;img src="images/full-field.png" alt="Full Field">&lt;/p>
+&lt;p>Future work intends on using aluminum square tubing to rigidly mount cameras with the addition of 3D printed mounts.&lt;/p>
+&lt;p>&lt;img src="images/camera-mounting.png" alt="Camera mount">&lt;/p>
+&lt;h3 id="perception">Perception&lt;/h3>
+&lt;p>The perception system is responsible for tracking odometry (position, orientation, linear velocity, and angular velocity) for each car and the position and velocity of the ball.&lt;/p>
+&lt;p>In the prototype system, cars are tracked through &lt;a href="https://april.eecs.umich.edu/software/apriltag#:~:text=AprilTag%20is%20a%20visual%20fiducial,tags%20relative%20to%20the%20camera.">AprilTags&lt;/a> and the ball through OpenCV color thresholding techniques. ARC uses C++ for both systems.&lt;/p>
+&lt;p>In order to capture the size of the operating field, multiple cameras are required. The current system uses two PointGrey (FLIR) cameras and two Basler cameras.&lt;/p>
+&lt;p>Processing AprilTags for each camera is computationally expensive, so the team invested in a &amp;ldquo;Computation Cart&amp;rdquo; with two desktop PCs. Each PC is responsible for two cameras.&lt;/p>
+&lt;p>&lt;img src="images/computation-cart.jpg" alt="Computation Cart">&lt;/p>
+&lt;p>Information from each desktop is then communicated over the ROS network:&lt;/p>
+&lt;p>&lt;img src="images/multiple-cameras.png" alt="Multi-Cam">&lt;/p>
+&lt;h2 id="future-work">Future work&lt;/h2>
+&lt;p>The team has outlined the following objectives in working towards the overall goal:&lt;/p>
+&lt;ul>
+&lt;li>Proving the high-level framework on snake game&lt;/li>
+&lt;li>Testing and tuning of simulator for usage in training high-level planner&lt;/li>
+&lt;li>Completion of camera mounting infrastructure&lt;/li>
+&lt;li>Completion of field manufacturing&lt;/li>
+&lt;li>Perception system scaling / redesign&lt;/li>
+&lt;/ul>
+&lt;h2 id="quick-links">Quick links&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/purdue-arc/rocket_league">GitHub&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://drive.google.com/file/d/1zw7jYFSYIVamnQTyYaT1TCJGP7sZOg1J/view?usp=sharing">Spring 2021 Presentation&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Wiki: Piano Hand</title><link>purduearc.com/wiki/active-projects/piano-hand/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/active-projects/piano-hand/</guid><description>
+&lt;h2 id="goal">Goal&lt;/h2>
+&lt;p>The primary objective of Piano Hand is to explore the perspective of robotics in replicating human-motion. Fascination for this included looking at tasks that would help us understand biomechanics, which is an area of robotics that has gained a lot of traction recently.&lt;/p>
+&lt;p>The goal of the project is to build a fully autonomous robot arm that can play the piano. The human hand, with 27 degrees of freedom (DOF), has so far been the most dextrous mechanism to play the piano and the closer we get to replicating that degree of freedom and movement, the better it is to move the arm and play the piano.&lt;/p>
+&lt;p>This semester (Fall 2022), we are planning to refine our working model of the animatronic hand built last semester with the help of accurate servo motor and flex sensor functioning. We would expect to extend functioning to two hands as well. Additionally, we are starting a new path in software along the lines of machine learning and optical image recognition by building a model that can read sheet music, given an image format.&lt;/p>
+&lt;p>Along the way, we will publish our progress, code, tutorials and workshops.&lt;/p>
+&lt;p>Project GitHub Repository: &lt;a href="https://github.com/purdue-arc/arc-piano-hand">&lt;a href="https://github.com/purdue-arc/arc-piano-hand">https://github.com/purdue-arc/arc-piano-hand&lt;/a> &lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2 id="what-we-have-done">What we have done&lt;/h2>
+&lt;h3 id="summer-2022">Summer 2022&lt;/h3>
+&lt;p>Ideated and designed new mechanisms for the hand that involves the usage of linear actuators and bevel gears. This design will be assembled and tested in Fall 2022 as a new iteration from the hand design in Spring 2022.&lt;/p>
+&lt;img src="images/summer2022_bevel.png" alt="Spring2022_Design" width="400"/>
+&lt;img src="images/summer2022_linear.png" alt="Spring2022_Design" width="400"/>
+&lt;p>Worked on fixing issues that came about in software in Spring 2022, and in getting ready the design to implement on the hand in Fall 2023. Introduced new course of action alongside software to start with machine learning and model development in Optical Music Recognition.&lt;/p>
+&lt;p>Clip from working of servos:&lt;/p>
+&lt;div class="embed-container">
+&lt;iframe
+width="640"
+height="480"
+src="https://drive.google.com/file/d/12XIlDrckEdbvJNI8A9Jp3um2TsCtu46J/preview"
+frameborder="0"
+allowfullscreen="">
+&lt;/iframe>
+&lt;/div>
+&lt;h3 id="spring-2022">Spring 2022&lt;/h3>
+&lt;img src="images/spring2022_design.png" alt="Spring2022_Design" width="400"/>
+&lt;p>Worked on improving model developed in Fall 2021 by printing and testing. An add-on for attaching the servo motors was developed and the design was 3D-printed.&lt;/p>
+&lt;img src="images/spring2022_servo.png" alt="Spring2022_ServoAttach" width="400"/>
+&lt;p>Software work primarily included setup of environment on Arudino/Raspberry Pi, along with flex sensors. Issues with the usage of continuous servos were addressed. 8-bit ADCs were also used to improve testing.&lt;/p>
+&lt;div class="embed-container">
+&lt;iframe
+width="640"
+height="480"
+src="https://drive.google.com/file/d/1XUN3-VXOXNSEd7ECZbARMhXspTH0es3h/preview"
+frameborder="0"
+allowfullscreen="">
+&lt;/iframe>
+&lt;/div>
+&lt;h3 id="fall-2021">Fall 2021&lt;/h3>
+&lt;p>Worked primarily on developing models and getting an idea of the different parts necessary to 3-D print. Produced the following first iteration of the hand by the end of the semester from hardware.&lt;/p>
+&lt;img src="images/fall2021_design.png" alt="Fall2021_Design" width="400"/>
+&lt;p>Software primarily worked on simulation and testing, and the following simulation was produced on TinkerCAD (TinkerCAD&amp;rsquo;s electronic component simulator had Arduino testing capabilities and hence was useful for the first stage of testing). TInkerCAD&amp;rsquo;s use-cases for simulation testing were visible from early testing with the software for multiple fingers, using MG90S servos.&lt;/p>
+&lt;div class="embed-container">
+&lt;iframe
+width="640"
+height="480"
+src="https://drive.google.com/file/d/1FLBJuV58_8QRsNKVJZqaC88cPaUbHi6O/preview"
+frameborder="0"
+allowfullscreen="">
+&lt;/iframe>
+&lt;/div>
+&lt;hr>
+&lt;h3 id="subteams-and-roster">Subteams and Roster&lt;/h3>
+&lt;h4 id="project-manager">Project Manager&lt;/h4>
+&lt;p>Revanth Krishna Senthilkumaran, Computer Engineering&lt;/p>
+&lt;h4 id="hardware">Hardware&lt;/h4>
+&lt;p>Hardware primarily works on making and refining CAD models with tools available, 3D printing models, assembling, testing and identifying points of improvement in the model and testing functionality.&lt;/p>
+&lt;ul>
+&lt;li>
+Rugved Dikay, Aeronautical and Aerospace Engineering
+&lt;/li>
+&lt;li>
+Akshay, Electrical Engineering
+&lt;/li>
+&lt;li>
+Archis Behere, Mechanical Engineering
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="software">Software&lt;/h4>
+&lt;p>Software primarily works on developing the code and algorithms for the movement of the hand to locations computed, along with setup of the electrical systems. More recent initiatives include model development for optical music recognition and Raspberry Pi conversion from Arduino.&lt;/p>
+&lt;ul>
+&lt;li>
+Dhruv Sujatha, Data Science
+&lt;/li>
+&lt;li>
+Jacob Aldridge, Computer Science
+&lt;/li>
+&lt;li>
+Manas Paranjape, Computer Science
+&lt;/li>
+&lt;li>
+Visuwanaath Selvam, Computer Engineering
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="resources">Resources&lt;/h2>
+&lt;h3> Inspiration / Other Projects &lt;/h3>
+&lt;li>
+A team of researchers attempted replicating the pressure applied in the grasping mechanism and achieved 17 DOF in a 5-finger hand. The actuators used are the most interesting: McKibben Actuators, which move on the basis of difference in Air Pressure. &lt;a href="https://www.sciencedirect.com/science/article/pii/B9780081005743000102"> ScienceDirect article &lt;/a>
+&lt;/li>
+&lt;li>
+The ILDA Robot Hand: A 15 DOF, highly tactile robot hand, motion along surface of palm, and stepper motor actuation. Some of its capabilities include crushing cans, delicate grasping, and tactile tasks such as tapping. &lt;a href="https://gizmodo.com/lifelike-robotic-hand-is-a-bit-too-close-to-terminator-1848213189"> Overview and Videos of Functioning &lt;/a> | &lt;a href="https://www.nature.com/articles/s41467-021-27261-0"> Nature article &lt;/a>
+&lt;/li>
+&lt;li>
+Soft actuated robots - &lt;a href="https://dash.harvard.edu/bitstream/handle/1/25922120/66841469.pdf;sequence=1"> Harvard paper &lt;/a> |
+&lt;/li>
+&lt;li>
+WPI - &lt;a href="https://web.wpi.edu/Pubs/E-project/Available/E-project-042919-161531/unrestricted/Piano_Playing_Robotic_Arm_MQP_-_Final.pdf"> MQP
+&lt;/li>
+&lt;li>
+Allegro Hand - &lt;a href="http://wiki.ros.org/Robots/AllegroHand">ROS Documentation&lt;/a> | &lt;a href="https://www.youtube.com/watch?v=WzJJ4c6AqnE"> MIT Grad Student's Piano Hand&lt;/a>
+&lt;/li>
+&lt;li>
+Robot Nano Hand - &lt;a href="https://youtu.be/uOeS_jklU2Y">YouTube&lt;/a> | &lt;a href="https://robotnanohand.com/"> Site &lt;/a>
+&lt;/li>
+&lt;li>
+InMoov Robot Hand - &lt;a href="https://www.thingiverse.com/thing:17773">Parts and Paper Link&lt;/a>
+&lt;/li>
+&lt;li>
+Other similar project resources: &lt;a href="https://create.arduino.cc/projecthub/laurencemlai/diy-glove-controlled-robotic-hand-ff5d63"> Arduino Project Hub &lt;/a> | &lt;a href="https://www.instructables.com/DIY-Robotic-Hand-Controlled-by-a-Glove-and-Arduino/"> Instructables &lt;/a>
+&lt;/li>
+&lt;li>
+Video Links/Pages referred: &lt;a href="https://www.youtube.com/c/WillCogley">Will Cogley&lt;/a> | Automation Robotics' &lt;a href="https://www.youtube.com/channel/UCd0xLOw6No5IAsq3Y2-b0eA">Clone&lt;/a>
+&lt;/li>
+&lt;h3> References &lt;/h3>
+&lt;li>
+Piano Keys Research - &lt;a href="https://music.stackexchange.com/questions/53847/what-are-the-dimensions-of-piano-keys-in-inches"> Dimensions &lt;/a>
+&lt;/li>
+&lt;li>
+Joint Design - &lt;a href="https://www.youtube.com/watch?v=AJ9zVYQw5XU">Ball and Socket&lt;/a>
+&lt;/li>
+&lt;li>
+Optical Music Recognition Datasets - &lt;a href="https://apacha.github.io/OMR-Datasets/"> Apacha Database List &lt;/a> | &lt;a href="https://tuggeluk.github.io/deepscores/"> Deepscores &lt;/a> | &lt;a href="https://grfia.dlsi.ua.es/primus/"> Primus &lt;/a>
+&lt;/li>
+&lt;li>
+Raspberry Pi-Arduino Connectivity - &lt;a href="https://www.aranacorp.com/en/communication-between-raspberry-pi-and-arduino-with-i2c/"> AranaCorp &lt;/a> | &lt;a href="https://maker.pro/raspberry-pi/tutorial/raspberry-pi-4-gpio-pinout"> Pi4 GPIO &lt;/a>
+&lt;/li>
+&lt;li>
+Parts - &lt;a href="https://cdn-learn.adafruit.com/downloads/pdf/adafruit-4-channel-adc-breakouts.pdf">ADCs&lt;/a> | Multi-channel Servo Controller (&lt;a href="https://www.adafruit.com/product/2327?gclid=COGwqIfL99ECFYQDaQodjtQPXQ">16&lt;/a>, &lt;a href="https://shop.pimoroni.com/products/servo-2040?variant=39800591679571">18&lt;/a>) | &lt;a href="https://www.youtube.com/watch?v=2vAoOYF3m8U"> Linear Servo Actuators &lt;/a> - &lt;a href="https://www.myminifactory.com/object/3d-print-77542">CAD Files 1&lt;/a>, &lt;a href="https://www.thingiverse.com/thing:3170748/files">CAD Files 2&lt;/a>
+&lt;/li>
+&lt;li>
+Add-ons: Strings/Thread &lt;a href="https://www.amazon.com/Cotton-String-Cooking-Kitchen-Wrapping/dp/B07KVSVTVV/ref=sr_1_1_sspa?crid=3ANYCTZMK7A2X&amp;keywords=cotton+string+3mm&amp;qid=1649018569&amp;sprefix=cotton+string+3mm%2Caps%2C72&amp;sr=8-1-spons&amp;psc=1&amp;spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFDQTNFRjhSR1IzNEkmZW5jcnlwdGVkSWQ9QTA5MDkwNzczUVJLU1FGRTJYME1RJmVuY3J5cHRlZEFkSWQ9QTAzMzE0NzIyV0w0MTJLOU8yNUVTJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ=="> 1 &lt;/a>, &lt;a href="https://www.amazon.com/gp/product/B01FICZLU8/ref=ewc_pr_img_2?smid=A27A1UMDQYE0QB&amp;th=1"> 2 &lt;/a> | &lt;a href="https://www.amazon.com/Winter-Gloves-Men-Women-Waterproof/dp/B09FPS6HHH/ref=sr_1_7?crid=GDR5H6K8SH8I&amp;keywords=amazon%2Bcloth%2Bgloves&amp;qid=1644791622&amp;sprefix=amazon%2Bcloth%2Bglove%2Caps%2C83&amp;sr=8-7&amp;th=1&amp;psc=1"> Gloves &lt;/a>
+&lt;/li>
+&lt;li>
+DOF Analysis - &lt;a href="https://www.researchgate.net/publication/264907843_Real-time_hand_tracking_for_rehabilitation_and_character_animation"> +Real-time Hand Tracking &lt;/a> | &lt;a href="https://support.ptc.com/help/creo/creo_pma/r6.0/usascii/index.html#page/simulate/mech_des/connections/calculating_dof_redund.html">Calculator&lt;/a> | &lt;a href="https://www.mecharithm.com/degrees-of-freedom-of-a-robot/"> Mecharithm &lt;/a> | &lt;a href="https://www.techopedia.com/definition/12702/six-degrees-of-freedom-6dof"> Technopedia &lt;/a>
+&lt;/li>
+&lt;li>
+Interesting Actuation Methods - &lt;a href="https://www.frontiersin.org/articles/10.3389/frobt.2020.586216/full">Voltage-Controlled Linear Actuation&lt;/a>
+&lt;/li>
+&lt;!-- ## References --></description></item><item><title>Wiki: Robot Arm</title><link>purduearc.com/wiki/active-projects/robot-arm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/active-projects/robot-arm/</guid><description>
+&lt;h2 id="goal">Goal&lt;/h2>
+&lt;h3 id="mission">Mission&lt;/h3>
+&lt;p>Our overarching goal is to explore why robots are limited to factory environments and why we don&amp;rsquo;t have them cooking for us and folding our clothes yet.&lt;/p>
+&lt;p>In our journey, we plan to publish our progress, tutorials, code, and workshops.&lt;/p>
+&lt;h3 id="right-now">Right now&lt;/h3>
+&lt;p>Right now, we&amp;rsquo;re building software/hardware for a robot arm to play chess.&lt;/p>
+&lt;p>From this, we hope to validate fundamental understanding of robot arm design, control (using control systems and/or reinforcement learning), sensor systems (vision, encoders, tactile), and mechanical actuator systems (servos, steppers, gearboxes).&lt;/p>
+&lt;h4 id="hardware">Hardware&lt;/h4>
+&lt;p>We currently have two hardware efforts:&lt;/p>
+&lt;ol>
+&lt;li>Designing a &lt;a href="https://wiki.purduearc.com/wiki/robot-arm/hardware#mr-janktastic">Mr. Janktastic&lt;/a> from scratch&lt;/li>
+&lt;li>Building the &lt;a href="https://wiki.purduearc.com/wiki/robot-arm/hardware#bcn3d-moveo-arm">open-source BCN3D Moveo Arm&lt;/a> for a better hardware system for software to experiment and test vision, RL systems with.&lt;/li>
+&lt;/ol>
+&lt;h4 id="software">Software&lt;/h4>
+&lt;p>Working on a variety of problems in vision, control, and high level planning (RL soon!)). See the &lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software">Software Docs&lt;/a> for a deeper dive.&lt;/p>
+&lt;h2 id="what-have-we-done">What have we done?&lt;/h2>
+&lt;h3 id="may-2021">May 2021&lt;/h3>
+&lt;ul>
+&lt;li>Object detection working on chess pieces with 90%+ accuracy using YOLOv5 and usable in ROS
+&lt;ul>
+&lt;li>Put together a 500+ chess piece dataset for detection&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;img src="images/obj_det_may_21.png" alt="Object detection demo" width="400"/>
+&lt;ul>
+&lt;li>Prototype gripper fingers that can pick up chess pieces decently well&lt;/li>
+&lt;/ul>
+&lt;p>{% include googleDrivePlayer.html id=&amp;ldquo;1P8rwWDJa1Yuv88X697RMvEq04j1IgpqW/preview&amp;rdquo; %}&lt;/p>
+&lt;ul>
+&lt;li>Created Gazebo simulation that is controlled by MoveIt pipeline, including a simulated camera, chessboard, and chess pieces&lt;/li>
+&lt;/ul>
+&lt;p>{% include googleDrivePlayer.html id=&amp;ldquo;19FZ7lsqCn6DEChjjdBgsTy0feUANYaVO/preview&amp;rdquo; %}&lt;/p>
+&lt;h3 id="december-2020">December 2020&lt;/h3>
+&lt;ul>
+&lt;li>Got an early version of protoarm to stack some boxes using IK and trajectory planning from MoveIt and ROS&lt;/li>
+&lt;/ul>
+&lt;p>{% include googleDrivePlayer.html id=&amp;ldquo;1yms3OuqYp-n4JCt-yBGZg8yEyajXOj_M/preview&amp;rdquo; %}&lt;/p>
+&lt;ul>
+&lt;li>Designed a prototype 6dof arm&lt;/li>
+&lt;/ul>
+&lt;img src="images/6dof_dec_20.png" alt="6DOF arm CAD" width="200"/>
+&lt;h2 id="quick-links">Quick links&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/purdue-arc/arc_robot_arm">GitHub&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Wiki: Wizard's Chess</title><link>purduearc.com/wiki/active-projects/wizards-chess/</link><pubDate>Fri, 30 Jul 2021 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/active-projects/wizards-chess/</guid><description>
+&lt;h2 id="goal">Goal&lt;/h2>
+&lt;p>Our goal for this project is to be able to create a fully autonomous, life sized chess game that people will be able to play using only voice commands. This project was inspired by the Wizard&amp;rsquo;s Chess game in Harry Potter and the Philosopher&amp;rsquo;s Stone. We will be exploring different hardware and software concepts, including engineering design, CAD, manufacturing, computer vision, and trajectory planning.&lt;/p>
+&lt;h2 id="subsystems">Subsystems&lt;/h2>
+&lt;h3 id="hardware">Hardware&lt;/h3>
+&lt;p>We are currently working on developing all 32 pieces for the game, as well as manufacturing the chess board ourselves. Navigate to our [hardware docs]({% link wiki/wizards-chess/hardware.md %}) to understand where we are at in terms of our hardware progress.&lt;/p>
+&lt;h4 id="battery-team">Battery Team&lt;/h4>
+&lt;p>The batteries team has been researching what types of batteries we need to power the robot as well as how to do it. Their mission is to successfully provide the amount of power to allow a full game of chess to run without needing any recharges. Currently, the upper bound that they have set for one full game is 2 hours.&lt;/p>
+&lt;h4 id="cad">CAD&lt;/h4>
+&lt;p>The CAD team is utilizing Fusion 360 to create a model of the basic chess piece. They are also our go-to team for laser cutting, 3D printing, CNCing, and general manufacturing, especially when it comes to needing certain files.&lt;/p>
+&lt;h3 id="software">Software&lt;/h3>
+&lt;p>We will be working on vision using apriltags to determine the positioning of each of the pieces on the board on an x,y coordinate plane and voice inputs to direct the pieces where to go. This will all be controlled by the overarching Raspberry Pi 4 controller, intakes voice commands, determines valid moves, and calculates the correct trajectory for each of the pieces. Navigate to our [software docs]({% link wiki/wizards-chess/software.md %}) to get a deeper dive into these concepts.&lt;/p>
+&lt;h4 id="computer-vision">Computer Vision&lt;/h4>
+&lt;p>This team is tasked with figuring out how to capture the position of all pieces on the board at all times. The current design is to use an overhead camera that will encompass the whole board, and then use Apriltags on each robot and 4 corners. With this information, we will be able to digitally map them on an xy-coordinate plane and perform the trajectory and pathing calculations correctly in order to move the correct chess pieces to the correct spots.&lt;/p>
+&lt;h4 id="voice-recognition">Voice Recognition&lt;/h4>
+&lt;p>This team is tasked with implementing full voice recognition capabilities for the chess game. They are looking into different voice recognition libraries that will be the best to implement in order to assist the creation of the software needed. The voice recognition software will take different commands (ie: Knight to e4) and use the trajectory planner to convert them to a point on the plane for the piece to move to.&lt;/p>
+&lt;h2 id="what-have-we-been-up-to">What have we been up to?&lt;/h2>
+&lt;h3 id="spring-2021">Spring 2021&lt;/h3>
+&lt;p>This spring was our first semester on this project!&lt;/p>
+&lt;ul>
+&lt;li>Designed the triangular chess pieces
+&lt;ul>
+&lt;li>Each robot is about 9.75&amp;quot; x 7.75&amp;quot; and laser cut from .5&amp;quot; plywood and each square on the field is 1.5&amp;rsquo; by 1.5'&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;img src="images/WC-prototype1.jpg" alt="Chess Piece Prototype" width="400"/>
+&lt;ul>
+&lt;li>Put together prototype with motor movement&lt;/li>
+&lt;/ul>
+&lt;div class="embed-container">
+&lt;iframe
+width="640"
+height="480"
+src="https://drive.google.com/file/d/18uXqdxGblfsNUdoEI2qEVPu5-sYCvQ7a/preview"
+frameborder="0"
+allowfullscreen="">
+&lt;/iframe>
+&lt;/div>
+&lt;ul>
+&lt;li>Wrote chess algorithm using Python&lt;/li>
+&lt;li>Simulated robot movement in ROS&lt;/li>
+&lt;/ul>
+&lt;h2 id="plans-for-the-future">Plans for the Future&lt;/h2>
+&lt;p>We are planning on creating low-poly structures for each of the chess pieces and combining them with LED indicators to distinguish between the different pieces. We will also be looking into creating custom PCBs for each of the robots.&lt;/p></description></item></channel></rss>
