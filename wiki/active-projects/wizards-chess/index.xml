@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – Wizard's Chess</title><link>https://purdue-arc.github.io/wiki/active-projects/wizards-chess/</link><description>Recent content in Wizard's Chess on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 30 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://purdue-arc.github.io/wiki/active-projects/wizards-chess/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: Software</title><link>https://purdue-arc.github.io/wiki/active-projects/wizards-chess/software/</link><pubDate>Thu, 17 Jun 2021 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/wiki/active-projects/wizards-chess/software/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – Wizard's Chess</title><link>https://purdue-arc.github.io/site/wiki/active-projects/wizards-chess/</link><description>Recent content in Wizard's Chess on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 30 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://purdue-arc.github.io/site/wiki/active-projects/wizards-chess/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: Software</title><link>https://purdue-arc.github.io/site/wiki/active-projects/wizards-chess/software/</link><pubDate>Thu, 17 Jun 2021 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/site/wiki/active-projects/wizards-chess/software/</guid><description>
 &lt;h2 id="system-overview">System Overview&lt;/h2>
 &lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">graph
 subgraph High Level
@@ -211,20 +211,20 @@ A3 --&amp;gt; A4
 &lt;li>tracking&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>Wiki: Hardware</title><link>https://purdue-arc.github.io/wiki/active-projects/wizards-chess/hardware/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/wiki/active-projects/wizards-chess/hardware/</guid><description>
+&lt;/ul></description></item><item><title>Wiki: Hardware</title><link>https://purdue-arc.github.io/site/wiki/active-projects/wizards-chess/hardware/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/site/wiki/active-projects/wizards-chess/hardware/</guid><description>
 &lt;h2 id="chess-pieces">Chess Pieces&lt;/h2>
 &lt;h3 id="design">Design&lt;/h3>
 &lt;p>Our current prototype design for the chess pieces has a wooden triangle base, 1&amp;quot; ball bearings, two wheels, and two motors. This was chosen to optimize efficiency, while lowering cost, since we have to build 32 chess pieces. The chess pieces themselves are 9.75&amp;quot; x 7.75&amp;quot; x .5&amp;quot;, designed for maneuverability on the chess board, so that they can move between other chess pieces and we don&amp;rsquo;t have to worry about moving other pieces out of the way. We are also using &lt;a href="https://www.pitsco.com/TETRIX-DC-Gear-Motor">TETRIX Motors&lt;/a> and &lt;a href="https://www.andymark.com/products/neverest-series-motor-only">Neverest Motors&lt;/a>.&lt;/p>
 &lt;!--confirm that these are the correct links to the motors-->
-&lt;img src="https://purdue-arc.github.io/wiki/active-projects/wizards-chess/images/cad-v1.png" alt="CAD Model of Chess Piece V1" width="600"/>
+&lt;img src="https://purdue-arc.github.io/site/wiki/active-projects/wizards-chess/images/cad-v1.png" alt="CAD Model of Chess Piece V1" width="600"/>
 &lt;blockquote>
 &lt;p>Other designs have included an X-drive, 4-wheel drive, or 3-wheel triangle bot, however they were scrapped due to the cost and more complex systems they would have included.&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="manufacturing">Manufacturing&lt;/h3>
 &lt;p>The chess pieces are made from .5&amp;quot; birch plywood and manufactured using the laser cutting process. The hole markers are also included in the laser cutting process so that we don&amp;rsquo;t have to remeasure where to drill the holes after every cut and to keep everything uniform.&lt;/p>
 &lt;p>We will also start manufacturing the motor mounts ourselves to cut down on cost, using the manual mill and CNC machine.&lt;/p>
-&lt;img src="https://purdue-arc.github.io/wiki/active-projects/wizards-chess/images/laser-cut.png" alt="Laser Cut Lines" width="400"/>
-&lt;img src="https://purdue-arc.github.io/wiki/active-projects/wizards-chess/images/motor-mount.jpg" alt="CAD Model of Motor Mount" width="400"/>
+&lt;img src="https://purdue-arc.github.io/site/wiki/active-projects/wizards-chess/images/laser-cut.png" alt="Laser Cut Lines" width="400"/>
+&lt;img src="https://purdue-arc.github.io/site/wiki/active-projects/wizards-chess/images/motor-mount.jpg" alt="CAD Model of Motor Mount" width="400"/>
 &lt;h2 id="chess-board">Chess Board&lt;/h2>
 &lt;h3 id="design-1">Design&lt;/h3>
 &lt;p>Each square for the board is 1.5&amp;rsquo; x 1.5&amp;rsquo; to accomodate for the chess pieces moving around and between each other. It is then painted black and white accordingly.&lt;/p>
@@ -235,4 +235,4 @@ A3 --&amp;gt; A4
 &lt;p>The board is made from 5mm triply and manufactured using the vertical bandsaw. The triply is cut into pieces of 3&amp;rsquo; x 1.5&amp;rsquo; which accomodates 2 squares on the board. Paint and paintbrushes are available in our workspace to paint the board black and white.&lt;/p>
 &lt;blockquote>
 &lt;p>When manufacturing, the board is cut to exactly 3&amp;rsquo; and then cut in half, so each piece is a little bit smaller that 1.5&amp;rsquo; due to the saw size.&lt;/p>
-&lt;/blockquote></description></item><item><title>Wiki:</title><link>https://purdue-arc.github.io/wiki/active-projects/wizards-chess/images/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/wiki/active-projects/wizards-chess/images/</guid><description/></item></channel></rss>
+&lt;/blockquote></description></item><item><title>Wiki:</title><link>https://purdue-arc.github.io/site/wiki/active-projects/wizards-chess/images/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/site/wiki/active-projects/wizards-chess/images/</guid><description/></item></channel></rss>
