@@ -1,6 +1,5 @@
 ---
 title: "ROS"
-linkTitle: "ROS"
 weight: 20
 date: 2022-08-04
 description: >

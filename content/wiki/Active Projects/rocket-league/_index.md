@@ -1,6 +1,10 @@
 ---
 title: "Rocket League"
+weight: 1
 date: 2022-08-04
+no_list: true
+description: >
+    Teaching cars to play soccer
 ---
 
 ## Goal
@@ -13,7 +17,7 @@ Current tasks are aimed at creating an interactive demo, where a team of human c
 
 Our system is organized into several components, which function together to create an autonomous Rocket League car.
 
-![System Overview](/images/rocket-league/system-overview.png)
+![System Overview](images/system-overview.png)
 
 The system consists of several specialized layers, which each reduce abstraction as information flows from the top of the diagram to the bottom. For example, a control effort (ex: put the steering wheel at 10 degrees) is less abstract than a collision goal (ex: hit the ball at position (3,5) cm in the (1,0) direction). Each layer refines the previous command until it is eventually something usable by the car's hardware.
 
@@ -71,7 +75,7 @@ Control efforts to the car are broadcasted using a FrSky XJT transmitter. These 
 
 An image of the hardware for one car is shown below:
 
-![ROS Interface Hardware](/images/rocket-league/ros-interface.jpg)
+![ROS Interface Hardware](images/ros-interface.jpg)
 
 ### Car
 
@@ -96,11 +100,11 @@ Work has been done towards creating a consistent environment for operating the c
 
 In Spring 2021, physical tests were performed on Krach's carpet and used plywood planks to provide boundaries. Tripods with PVC tubes were also used to hold multiple cameras necessary for localization.
 
-![Full Field](/images/rocket-league/full-field.png)
+![Full Field](images/full-field.png)
 
 Future work intends on using aluminum square tubing to rigidly mount cameras with the addition of 3D printed mounts.
 
-![Camera mount](/images/rocket-league/camera-mounting.png)
+![Camera mount](images/camera-mounting.png)
 
 ### Perception
 
@@ -112,11 +116,11 @@ In order to capture the size of the operating field, multiple cameras are requir
 
 Processing AprilTags for each camera is computationally expensive, so the team invested in a "Computation Cart" with two desktop PCs. Each PC is responsible for two cameras.
 
-![Computation Cart](/images/rocket-league/computation-cart.jpg)
+![Computation Cart](images/computation-cart.jpg)
 
 Information from each desktop is then communicated over the ROS network:
 
-![Multi-Cam](/images/rocket-league/multiple-cameras.png)
+![Multi-Cam](images/multiple-cameras.png)
 
 ## Future work
 

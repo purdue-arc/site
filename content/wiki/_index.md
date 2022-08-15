@@ -3,6 +3,8 @@ title: "Purdue ARC Wiki"
 linkTitle: "Wiki"
 weight: 20
 
+no_list: true
+
 menu:
   main:
     weight: 20
