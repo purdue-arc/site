@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – Active Projects</title><link>purduearc.com/wiki/active-projects/</link><description>Recent content in Active Projects on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><atom:link href="purduearc.com/wiki/active-projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: Rocket League</title><link>purduearc.com/wiki/active-projects/rocket-league/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/active-projects/rocket-league/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – Active Projects</title><link>https://purdue-arc.github.io/wiki/active-projects/</link><description>Recent content in Active Projects on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://purdue-arc.github.io/wiki/active-projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: Rocket League</title><link>https://purdue-arc.github.io/wiki/active-projects/rocket-league/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/wiki/active-projects/rocket-league/</guid><description>
 &lt;h2 id="goal">Goal&lt;/h2>
 &lt;p>Build a system of autonomous, scaled vehicles to play head-to-head in a game of high-speed soccer. Inspiration draws from the game, Rocket League, in which rocket-powered vehicles play soccer in 3v3 matches.&lt;/p>
 &lt;p>Current tasks are aimed at creating an interactive demo, where a team of human controlled cars compete against a team of autonomous cars. Future work may entail using the working system to launch a multi-university competition. Teams would build their own autonomous strategies and face-off in a tournament bracket.&lt;/p>
@@ -11,7 +11,7 @@
 &lt;h3 id="intercommunication">Intercommunication&lt;/h3>
 &lt;p>Like most ARC projects, Rocket League uses &lt;a href="https://www.ros.org/about-ros/">ROS&lt;/a> to handle communication between each component. ROS is compatible with the Python, C++, and Arduino used on the project.&lt;/p>
 &lt;blockquote>
-&lt;p>Documentation on setting up and learning about your ROS development evironment can be found &lt;a href="purduearc.com/wiki/tutorials/ros">here&lt;/a>.&lt;/p>
+&lt;p>Documentation on setting up and learning about your ROS development evironment can be found &lt;a href="https://purdue-arc.github.io/wiki/tutorials/ros">here&lt;/a>.&lt;/p>
 &lt;/blockquote>
 &lt;!--
 This is way too high level for an overview, but it should eventually go on a different page
@@ -88,7 +88,7 @@ TODO: include picture of car's upgrades
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/purdue-arc/rocket_league">GitHub&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://drive.google.com/file/d/1zw7jYFSYIVamnQTyYaT1TCJGP7sZOg1J/view?usp=sharing">Spring 2021 Presentation&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Wiki: Piano Hand</title><link>purduearc.com/wiki/active-projects/piano-hand/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/active-projects/piano-hand/</guid><description>
+&lt;/ul></description></item><item><title>Wiki: Piano Hand</title><link>https://purdue-arc.github.io/wiki/active-projects/piano-hand/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/wiki/active-projects/piano-hand/</guid><description>
 &lt;h2 id="goal">Goal&lt;/h2>
 &lt;p>The primary objective of Piano Hand is to explore the perspective of robotics in replicating human-motion. Fascination for this included looking at tasks that would help us understand biomechanics, which is an area of robotics that has gained a lot of traction recently.&lt;/p>
 &lt;p>The goal of the project is to build a fully autonomous robot arm that can play the piano. The human hand, with 27 degrees of freedom (DOF), has so far been the most dextrous mechanism to play the piano and the closer we get to replicating that degree of freedom and movement, the better it is to move the arm and play the piano.&lt;/p>
@@ -227,7 +227,7 @@ DOF Analysis - &lt;a href="https://www.researchgate.net/publication/264907843_Re
 &lt;li>
 Interesting Actuation Methods - &lt;a href="https://www.frontiersin.org/articles/10.3389/frobt.2020.586216/full">Voltage-Controlled Linear Actuation&lt;/a>
 &lt;/li>
-&lt;!-- ## References --></description></item><item><title>Wiki: Robot Arm</title><link>purduearc.com/wiki/active-projects/robot-arm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/active-projects/robot-arm/</guid><description>
+&lt;!-- ## References --></description></item><item><title>Wiki: Robot Arm</title><link>https://purdue-arc.github.io/wiki/active-projects/robot-arm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/wiki/active-projects/robot-arm/</guid><description>
 &lt;h2 id="goal">Goal&lt;/h2>
 &lt;h3 id="mission">Mission&lt;/h3>
 &lt;p>Our overarching goal is to explore why robots are limited to factory environments and why we don&amp;rsquo;t have them cooking for us and folding our clothes yet.&lt;/p>
@@ -273,7 +273,7 @@ Interesting Actuation Methods - &lt;a href="https://www.frontiersin.org/articles
 &lt;h2 id="quick-links">Quick links&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/purdue-arc/arc_robot_arm">GitHub&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Wiki: Wizard's Chess</title><link>purduearc.com/wiki/active-projects/wizards-chess/</link><pubDate>Fri, 30 Jul 2021 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/active-projects/wizards-chess/</guid><description>
+&lt;/ul></description></item><item><title>Wiki: Wizard's Chess</title><link>https://purdue-arc.github.io/wiki/active-projects/wizards-chess/</link><pubDate>Fri, 30 Jul 2021 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/wiki/active-projects/wizards-chess/</guid><description>
 &lt;h2 id="goal">Goal&lt;/h2>
 &lt;p>Our goal for this project is to be able to create a fully autonomous, life sized chess game that people will be able to play using only voice commands. This project was inspired by the Wizard&amp;rsquo;s Chess game in Harry Potter and the Philosopher&amp;rsquo;s Stone. We will be exploring different hardware and software concepts, including engineering design, CAD, manufacturing, computer vision, and trajectory planning.&lt;/p>
 &lt;h2 id="subsystems">Subsystems&lt;/h2>

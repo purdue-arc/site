@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – Robot Arm</title><link>purduearc.com/wiki/active-projects/robot-arm/</link><description>Recent content in Robot Arm on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><atom:link href="purduearc.com/wiki/active-projects/robot-arm/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: Software</title><link>purduearc.com/wiki/active-projects/robot-arm/software/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/active-projects/robot-arm/software/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – Robot Arm</title><link>https://purdue-arc.github.io/wiki/active-projects/robot-arm/</link><description>Recent content in Robot Arm on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://purdue-arc.github.io/wiki/active-projects/robot-arm/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: Software</title><link>https://purdue-arc.github.io/wiki/active-projects/robot-arm/software/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/wiki/active-projects/robot-arm/software/</guid><description>
 &lt;blockquote>
 &lt;p>If you want to look at code and run some of it, check out &lt;a href="https://github.com/purdue-arc/arc_robot_arm">arc_robot_arm&lt;/a> README for quick start details and usage instructions.&lt;/p>
 &lt;/blockquote>
@@ -144,7 +144,7 @@ a2 --&amp;gt; a5[Virtual human player]
 &lt;h3 id="visual-servoing">Visual Servoing&lt;/h3>
 &lt;p>Even if we can see where the pieces are with the camera, how does the robot arm move closer to the chess piece it wants to pick up? Without visual servoing, any error that the robot makes cannot be accounted for and adjusted for accordingly, resulting in lots of fails. Visual servoing is a control algorithm using images as input to control for any errors that the robot makes.&lt;/p>
 &lt;p>We are using image-based visual servoing to localize the robot arm hand over an object in a graspable configuration, using images/2d bounding boxes as inputs to the system and servo commands as outputs.&lt;/p>
-&lt;img src="purduearc.com/wiki/active-projects/robot-arm/images/vs-diagram.png" alt="Diagram of controller" width="400"/>
+&lt;img src="https://purdue-arc.github.io/wiki/active-projects/robot-arm/images/vs-diagram.png" alt="Diagram of controller" width="400"/>
 > Visual servoing system diagram ([source](https://www.researchgate.net/figure/Visual-servoing-closed-loop_fig1_265436696))
 &lt;p>See the &lt;code>protoarm_visual_servoing&lt;/code> package for more details.&lt;/p>
 &lt;p>&lt;strong>Related Topics:&lt;/strong>&lt;/p>
@@ -336,11 +336,11 @@ a2 --&amp;gt; a5[Virtual human player]
 &lt;h3 id="encoders">Encoders&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://www.arduino.cc/reference/en/libraries/encoder/">Arduino Encoder Package&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Wiki: Hardware</title><link>purduearc.com/wiki/active-projects/robot-arm/hardware/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/active-projects/robot-arm/hardware/</guid><description>
+&lt;/ul></description></item><item><title>Wiki: Hardware</title><link>https://purdue-arc.github.io/wiki/active-projects/robot-arm/hardware/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/wiki/active-projects/robot-arm/hardware/</guid><description>
 &lt;h2 id="meet-the-robots">Meet the robots&lt;/h2>
 &lt;h3 id="protoarm">Protoarm&lt;/h3>
 &lt;p>This is protoarm (short for prototype arm), a 5-DOF robot arm adapted slightly from &lt;a href="https://www.youtube.com/watch?v=_B3gWd3A_SI">HowToMechatronics&amp;rsquo; model&lt;/a> that we built first to understand ROS, MoveIt, and the software stack for robot arms.&lt;/p>
-&lt;img src="purduearc.com/wiki/active-projects/robot-arm/images/protoarm.png" alt="Protoarm CAD" width="400"/>
+&lt;img src="https://purdue-arc.github.io/wiki/active-projects/robot-arm/images/protoarm.png" alt="Protoarm CAD" width="400"/>
 &lt;h3 id="bcn3d-moveo-arm">BCN3D Moveo Arm&lt;/h3>
 &lt;p>This is the &lt;a href="https://www.bcn3d.com/bcn3d-moveo-the-future-of-learning-robotic-arm/">BCN3D Moveo&lt;/a> arm that is fully open-source, built with steppers rather than cheap servos which have feedback control (a step up from the Protoarm), and is actually big enough to reach a full size chessboard. It also is much better designed and assembled than the Protoarm.&lt;/p>
 &lt;p>Quick links:&lt;/p>
@@ -348,10 +348,10 @@ a2 --&amp;gt; a5[Virtual human player]
 &lt;li>&lt;a href="https://github.com/BradyHooverDesigns/BCN3D-MOVEO-BOM">BOM&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/BCN3D/BCN3D-Moveo">CAD/Instructions&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;img src="purduearc.com/wiki/active-projects/robot-arm/images/moveo.jpg" alt="Moveo" width="400"/>
+&lt;img src="https://purdue-arc.github.io/wiki/active-projects/robot-arm/images/moveo.jpg" alt="Moveo" width="400"/>
 &lt;h3 id="mr-janktastic">Mr. Janktastic&lt;/h3>
 &lt;p>Building a 6-DOF robot arm fully from scratch with Dynamixel Servos.&lt;/p>
-&lt;img src="purduearc.com/wiki/active-projects/robot-arm/images/janktastic.png" alt="Moveo" width="400"/>
+&lt;img src="https://purdue-arc.github.io/wiki/active-projects/robot-arm/images/janktastic.png" alt="Moveo" width="400"/>
 &lt;h2 id="resources">Resources&lt;/h2>
 &lt;h3 id="cad">CAD&lt;/h3>
 &lt;p>TODO&lt;/p>
@@ -361,4 +361,4 @@ a2 --&amp;gt; a5[Virtual human player]
 &lt;h4 id="metal-manufacturing-tools">Metal Manufacturing tools&lt;/h4>
 &lt;p>TODO&lt;/p>
 &lt;h4 id="laser-cutting">Laser Cutting&lt;/h4>
-&lt;p>TODO&lt;/p></description></item><item><title>Wiki:</title><link>purduearc.com/wiki/active-projects/robot-arm/images/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/active-projects/robot-arm/images/</guid><description/></item></channel></rss>
+&lt;p>TODO&lt;/p></description></item><item><title>Wiki:</title><link>https://purdue-arc.github.io/wiki/active-projects/robot-arm/images/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/wiki/active-projects/robot-arm/images/</guid><description/></item></channel></rss>

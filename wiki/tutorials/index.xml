@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – Tutorials</title><link>purduearc.com/wiki/tutorials/</link><description>Recent content in Tutorials on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 04 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="purduearc.com/wiki/tutorials/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: Project Management</title><link>purduearc.com/wiki/tutorials/project-mgmt/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/tutorials/project-mgmt/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – Tutorials</title><link>https://purdue-arc.github.io/wiki/tutorials/</link><description>Recent content in Tutorials on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 04 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://purdue-arc.github.io/wiki/tutorials/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: Project Management</title><link>https://purdue-arc.github.io/wiki/tutorials/project-mgmt/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/wiki/tutorials/project-mgmt/</guid><description>
 &lt;p>Managing an ARC-supported project can be a challenging, but rewarding experience. Throughout this journey, you will pick up on many skills and lessons which can be carried through the rest of your life. The uncertainty of what lies ahead prevents us from outlining every possible milestone, but here we intend to provide general action items for how to successfully carry out your project within ARC.&lt;/p>
 &lt;p>In general, a project manager&amp;rsquo;s responsibilities can be broken into three categories:&lt;/p>
 &lt;ul>
@@ -48,7 +48,7 @@
 &lt;p>The leadership team will explicitly state when these tasks need to be completed.&lt;/p>
 &lt;p>SAO provides &lt;a href="https://www.purdue.edu/sao/resources/Resources%20for%20New%20Student%20Organizations.html">documentation&lt;/a> on the process of completing tasks such as scheduling rooms, submitting activity forms and more.&lt;/p>
 &lt;p>We understand lots of details in completing these tasks are vague, this is intentional. This offers freedom in how you choose to complete them. It cannot be overstated that if you have any questions, consult the leadership team.&lt;/p>
-&lt;p>Best of luck!&lt;/p></description></item><item><title>Wiki: WSL2</title><link>purduearc.com/wiki/tutorials/wsl2/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/tutorials/wsl2/</guid><description>
+&lt;p>Best of luck!&lt;/p></description></item><item><title>Wiki: WSL2</title><link>https://purdue-arc.github.io/wiki/tutorials/wsl2/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/wiki/tutorials/wsl2/</guid><description>
 &lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>Most development tools are built for Linux systems, which is why writing software on pure Windows isn&amp;rsquo;t recommended.&lt;/p>
 &lt;p>To get around this, developers use WSL2 (Windows Subsystem for Linux version 2). Essentially, Windows is running a full Linux system in tandem with Windows. This has much better performance than running a virtual machine (VM) or using the original WSL.&lt;/p>
@@ -88,11 +88,11 @@ WSL2 on Windows. Follow the guide fully, and for step 6, install &lt;a href="htt
 &lt;/code>&lt;/pre>&lt;p>For utilizing Docker in VS Code, click the Docker icon on the menu bar. Now you will be able to see all images and containers you are using. You should still use &lt;code>docker-build.sh&lt;/code> and &lt;code>docker-run.sh&lt;/code> scripts for running ARC containers, however this is a useful tool for managing versions.&lt;/p>
 &lt;p>If you intend on using VS Code, it might be helpful to check out their own &lt;a href="https://code.visualstudio.com/docs/introvideos/basics">tutorials&lt;/a>.&lt;/p>
 &lt;h2 id="going-forward">Going Forward&lt;/h2>
-&lt;p>Now that WSL2 is setup, you&amp;rsquo;ll want to setup &lt;a href="x-forwarding">X forwarding&lt;/a> for running GUI applications. Additionally if you are unfamilar with bash, checkout our &lt;a href="terminal">terminal guide&lt;/a>.&lt;/p></description></item><item><title>Wiki: Snake Game</title><link>purduearc.com/wiki/tutorials/snake-game/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/tutorials/snake-game/</guid><description>
+&lt;p>Now that WSL2 is setup, you&amp;rsquo;ll want to setup &lt;a href="x-forwarding">X forwarding&lt;/a> for running GUI applications. Additionally if you are unfamilar with bash, checkout our &lt;a href="terminal">terminal guide&lt;/a>.&lt;/p></description></item><item><title>Wiki: Snake Game</title><link>https://purdue-arc.github.io/wiki/tutorials/snake-game/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/wiki/tutorials/snake-game/</guid><description>
 &lt;h2 id="prerequisites">Prerequisites&lt;/h2>
 &lt;p>Before starting this tutorial, we recommend:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="purduearc.com/wiki/tutorials/ros">Setting up your development environment&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://purdue-arc.github.io/wiki/tutorials/ros">Setting up your development environment&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>Before we dive into ROS, let&amp;rsquo;s break down what we will be accomplishing.
@@ -2178,9 +2178,9 @@ tutorial to add to this package, lets us know.&lt;/p>
 give the repo some stars on &lt;a href="https://github.com/purdue-arc/arc_tutorials">GitHub&lt;/a>.
 You can also create GitHub Issues for any problems you found, or open up a PR if
 you have a fix. If you want to get in contact with the maintainer, send us an
-email through &lt;a href="mailto:autonomy@purdue.edu">autonomy@purdue.edu&lt;/a>.&lt;/p></description></item><item><title>Wiki: Using the Terminal</title><link>purduearc.com/wiki/tutorials/terminal/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/tutorials/terminal/</guid><description>
+email through &lt;a href="mailto:autonomy@purdue.edu">autonomy@purdue.edu&lt;/a>.&lt;/p></description></item><item><title>Wiki: Using the Terminal</title><link>https://purdue-arc.github.io/wiki/tutorials/terminal/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/wiki/tutorials/terminal/</guid><description>
 &lt;h2 id="prerequisites">Prerequisites&lt;/h2>
-&lt;p>If you are using Windows, you&amp;rsquo;ll want to install &lt;a href="purduearc.com/wiki/tutorials/wsl2">WSL2&lt;/a> to follow along.&lt;/p>
+&lt;p>If you are using Windows, you&amp;rsquo;ll want to install &lt;a href="https://purdue-arc.github.io/wiki/tutorials/wsl2">WSL2&lt;/a> to follow along.&lt;/p>
 &lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>The terminal is an interface for interacting with your computer. While traditional applications are intuitive, they can hold you back from accomplishing complicated tasks.&lt;/p>
 &lt;p>The terminal is itself an interface to a shell on the system, which handles command execution and other nice features such as piping. Most Linux systems come packaged with BASH (Bourne Again SHell).&lt;/p>
@@ -2203,11 +2203,11 @@ email through &lt;a href="mailto:autonomy@purdue.edu">autonomy@purdue.edu&lt;/a>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> ../../
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="going-forward">Going forward&lt;/h2>
 &lt;p>Purdue&amp;rsquo;s USB has a &lt;a href="https://purdueusb.com//wiki/terminal-cheatsheet">cheatsheet&lt;/a> with some additional information.&lt;/p>
-&lt;p>It&amp;rsquo;s recommended you also explore shell text editors (such as &lt;a href="https://www.vim.org/">vim&lt;/a>) and version control systems (like &lt;a href="https://git-scm.com/">git&lt;/a>).&lt;/p></description></item><item><title>Wiki: X Forwarding</title><link>purduearc.com/wiki/tutorials/x-forwarding/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/tutorials/x-forwarding/</guid><description>
+&lt;p>It&amp;rsquo;s recommended you also explore shell text editors (such as &lt;a href="https://www.vim.org/">vim&lt;/a>) and version control systems (like &lt;a href="https://git-scm.com/">git&lt;/a>).&lt;/p></description></item><item><title>Wiki: X Forwarding</title><link>https://purdue-arc.github.io/wiki/tutorials/x-forwarding/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/wiki/tutorials/x-forwarding/</guid><description>
 &lt;h2 id="prerequisites">Prerequisites&lt;/h2>
 &lt;p>Before starting this tutorial, we recommend:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="purduearc.com/wiki/tutorials/terminal">Familiarity with using the terminal&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://purdue-arc.github.io/wiki/tutorials/terminal">Familiarity with using the terminal&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>X forwarding is what will let you display GUIs (graphical user interfaces)
@@ -2272,11 +2272,11 @@ forwarding. It can be installed and run with the following commands:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt install -y x11-apps
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>xeyes
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You&amp;rsquo;ll see a little pair of eyes follow your cursor around. You can X out of it
-or hit &lt;code>CTRL+C&lt;/code> in order to kill the program.&lt;/p></description></item><item><title>Wiki: ROS</title><link>purduearc.com/wiki/tutorials/ros/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>purduearc.com/wiki/tutorials/ros/</guid><description>
+or hit &lt;code>CTRL+C&lt;/code> in order to kill the program.&lt;/p></description></item><item><title>Wiki: ROS</title><link>https://purdue-arc.github.io/wiki/tutorials/ros/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>https://purdue-arc.github.io/wiki/tutorials/ros/</guid><description>
 &lt;h2 id="prerequisites">Prerequisites&lt;/h2>
 &lt;p>Before starting this tutorial, we recommend:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="purduearc.com/wiki/tutorials/terminal">Familiarity with using the terminal&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://purdue-arc.github.io/wiki/tutorials/terminal">Familiarity with using the terminal&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://wiki.python.org/moin/BeginnersGuide/Programmers">An understanding of Python&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="what-is-ros">What is ROS?&lt;/h2>
@@ -2343,12 +2343,12 @@ or hit &lt;code>CTRL+C&lt;/code> in order to kill the program.&lt;/p></descripti
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Upon running this, two windows should appear:&lt;/p>
 &lt;p>&lt;img src="assets/images/snake-sim.PNG" alt="Snake Sim">
 &lt;img src="assets/images/snake-sim-control-board.PNG" alt="Snake control">&lt;/p>
-&lt;p>If these windows don&amp;rsquo;t appear, but every other command ran fine, then X forwarding is likely not working. Review the &lt;a href="purduearc.com/wiki/tutorials/x-forwarding">X forwarding&lt;/a> tutorial and if nothing works, then reach out in the comments.&lt;/p>
+&lt;p>If these windows don&amp;rsquo;t appear, but every other command ran fine, then X forwarding is likely not working. Review the &lt;a href="https://purdue-arc.github.io/wiki/tutorials/x-forwarding">X forwarding&lt;/a> tutorial and if nothing works, then reach out in the comments.&lt;/p>
 &lt;p>If they did appear however, then your dev environment is fully working!&lt;/p>
 &lt;h2 id="learning-the-basics">Learning the Basics&lt;/h2>
 &lt;p>You now have a basic idea of what ROS is and can run it on your machine. It&amp;rsquo;s time to learn the basics of what it offers.&lt;/p>
 &lt;p>The environment you tested in the last section will serve as a simple platform to study ROS.&lt;/p>
 &lt;p>Check out the &lt;a href="https://youtu.be/q9RCP4lizNM">video we made to introduce this section of the tutorial&lt;/a>.&lt;/p>
-&lt;p>After watching the above video, you can move on to the &lt;a href="purduearc.com/wiki/tutorials/snake-game">walkthrough&lt;/a>.&lt;/p>
+&lt;p>After watching the above video, you can move on to the &lt;a href="https://purdue-arc.github.io/wiki/tutorials/snake-game">walkthrough&lt;/a>.&lt;/p>
 &lt;h2 id="moving-forward">Moving Forward&lt;/h2>
 &lt;p>Congrats! You are one step closer to world domination. While you can learn more about ROS in &lt;a href="http://wiki.ros.org/ROS/Tutorials">their tutorials&lt;/a>, we recommend diving in through one of the club projects.&lt;/p></description></item></channel></rss>
