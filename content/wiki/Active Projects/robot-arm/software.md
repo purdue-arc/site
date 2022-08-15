@@ -21,7 +21,7 @@ From this, you can then:
 
 ## System Overview
 
-```mermaid
+{{<mermaid>}}
 graph
   subgraph Behavior Planning 
     BP1[Behavior Planner]
@@ -94,9 +94,10 @@ graph
   class BP1,LL1,BP2,BP3,V2 not_started
   class PC1 in_progress
   class S1,S2,LL2,LL3,V1,PC2,PC3 done
-```
 
-```mermaid
+{{</mermaid>}}
+
+{{<mermaid>}}
 graph
   l1[Not Started]
   l2[In Progress]
@@ -107,7 +108,7 @@ classDef done fill:#81ff9b
 class l1 not_started
 class l2 in_progress
 class l3 done
-```
+{{</mermaid>}}
 
 ## High level
 
@@ -116,7 +117,7 @@ After the robot turns on or at any given point of time, what should the robot do
 
 Overall, it should output executable commands that return true or false if they are completed successfully and then output the next command. A preliminary decision flowchart that a robot can make is modeled here:
 
-```mermaid
+{{<mermaid>}}
 graph
   a1[Scanning for change in board state]
   p1[Virtual Human]
@@ -128,7 +129,7 @@ graph
   p1 -- Next move --> a3
   p2 -- Next move --> a3
   a3 --> a4 --> a1
-```
+{{</mermaid>}}
 
 To implement the behavior planner, a Finite State Machine (FSM) and/or a Behavior Tree (BT) can be used, which both have tradeoffs in **modularity** and **reactivity**, ([read more](https://roboticseabass.com/2021/05/08/introduction-to-behavior-trees/), scroll to the last section for ).
 
@@ -161,13 +162,13 @@ Playing chess is more than just picking and placing pieces. The robot needs to a
 
 We can do this using a computer vision techniques with an image of the current chessboard as an input and the FEN notation of to board as an output. The following diagram shows this visually:
 
-```mermaid
+{{<mermaid>}}
 graph LR
   a1[Real chessboard] --> a2[2D chessboard] 
   a2 --> a3[FEN Notation] 
   a3 --> a4[Chess Engine]
   a2 --> a5[Virtual human player]
-```
+{{</mermaid>}}
 Some external projects we plan to use to complete the above:
 - [Real chessboard -> 2D chessboard](https://github.com/maciejczyzewski/neural-chessboard)
 - [2D chessboard -> FEN Notation](https://github.com/Elucidation/tensorflow_chessbot)
