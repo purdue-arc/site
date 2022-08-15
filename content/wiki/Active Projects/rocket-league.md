@@ -77,7 +77,7 @@ An image of the hardware for one car is shown below:
 
 The car is the complete physical system of one player on the field. Tests were performed on off-the-shelf cars, however none met the desired criteria for acceleration and control. To solve this issue, the team upgraded the electronics of the best-tested car and found much increased performance.
 
-{{< googleDrivePlayer "1hoZkHQMXcIDrOJjSXYIXwCfNXiyw8jH6/preview" >}}
+{{< drive-player "1hoZkHQMXcIDrOJjSXYIXwCfNXiyw8jH6/preview" >}}
 
 > Left: upgraded car, middle & right: stock cars
 
