@@ -22,9 +22,10 @@ jobs:
       
       - name: Install dependencies
         run: |
-          npm install -g postcss-cli
-          npm install -g autoprefixer 
-      
+          npm install --save-dev autoprefixer 
+          npm install --save-dev postcss-cli
+          npm install -D postcss
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
