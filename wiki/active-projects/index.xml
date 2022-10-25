@@ -227,7 +227,138 @@ DOF Analysis - &lt;a href="https://www.researchgate.net/publication/264907843_Re
 &lt;li>
 Interesting Actuation Methods - &lt;a href="https://www.frontiersin.org/articles/10.3389/frobt.2020.586216/full">Voltage-Controlled Linear Actuation&lt;/a>
 &lt;/li>
-&lt;!-- ## References --></description></item><item><title>Wiki: Robot Arm</title><link>https://purduearc.com/wiki/active-projects/robot-arm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purduearc.com/wiki/active-projects/robot-arm/</guid><description>
+&lt;!-- ## References --></description></item><item><title>Wiki: Drone Delivery</title><link>https://purduearc.com/wiki/active-projects/drone-delivery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purduearc.com/wiki/active-projects/drone-delivery/</guid><description>
+&lt;h2 id="goal">Goal&lt;/h2>
+&lt;p>Given a destination, autonomously deliver a package and return with no human intervention.&lt;/p>
+&lt;h2 id="subteams">Subteams&lt;/h2>
+&lt;ul>
+&lt;li>Hardware: Designs and builds the drone, its sensors, and package container.&lt;/li>
+&lt;li>Flight controls: Programs the drone using Robot Operating System (ROS) to ingest data and fly a given path. Tests flight in the simulation software Gazebo before real-world testing.&lt;/li>
+&lt;li>Obstacle avoidance: Programs the drone to avoid obstacles in its planned flight path encountered while its flying. Uses Intel Realsense camera and its depth sensor to recognize near and far objects using computer vision and generate a 3D data structure of its surroundings.&lt;/li>
+&lt;/ul>
+&lt;h2 id="technology">Technology&lt;/h2>
+&lt;h3 id="drone-hardware">Drone hardware&lt;/h3>
+&lt;ul>
+&lt;li>Motors: T-Motor U7 V2.0
+&lt;ul>
+&lt;li>6 total&lt;/li>
+&lt;li>4.55kg Lift / Motor&lt;/li>
+&lt;li>Over 27kg of Thrust!&lt;/li>
+&lt;li>47.5A Draw at 100% Throttle&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Props: Tarot 1855
+&lt;ul>
+&lt;li>18&amp;rsquo;&amp;rsquo; Diameter&lt;/li>
+&lt;li>5.5&amp;rsquo;&amp;rsquo; Pitch&lt;/li>
+&lt;li>Carbon fiber&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Frame: Tarot T960
+&lt;ul>
+&lt;li>Hexacopter Configuration&lt;/li>
+&lt;li>960mm Diameter&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Battery: Tattu Plus LiPo Battery Pack
+&lt;ul>
+&lt;li>22000mAh&lt;/li>
+&lt;li>25C Discharge Rate&lt;/li>
+&lt;li>6S&lt;/li>
+&lt;li>22.2V&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Power Delivery (ESC): xRotor 40A
+&lt;ul>
+&lt;li>60A Max Current&lt;/li>
+&lt;li>Rated for 6S LiPo (22.2V)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Flight Controller: Pixhawk 6c
+&lt;ul>
+&lt;li>H7 Processor @ 480MHZ
+&lt;ul>
+&lt;li>PX4 Firmware&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Redundant IMU&lt;/li>
+&lt;li>M8N GPS&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Camera: Intel RealSense D453
+&lt;ul>
+&lt;li>Stereoscopic Depth Sensing&lt;/li>
+&lt;li>&amp;lt; 2% Error Within 2m&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Companion Computer: Jetson Nano
+&lt;ul>
+&lt;li>Quad-core AMD Cortex&lt;/li>
+&lt;li>4GB Onboard Memory&lt;/li>
+&lt;li>128 Cuda Cores&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Infrared sensor: TBD
+&lt;ul>
+&lt;li>Used to find precise distance from ground to see if landing area is safe.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Camera rotator/gimbal
+&lt;ul>
+&lt;li>Will rotate camera from forward-facing to downwards to ensure safe landing area.&lt;/li>
+&lt;li>Stabilization of camera during flight to minimize noise in optical data&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Parcel container
+&lt;ul>
+&lt;li>Structure
+&lt;ul>
+&lt;li>Minimize impact on aerodynamic performance&lt;/li>
+&lt;li>Safe to access for users&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Food Preservation
+&lt;ul>
+&lt;li>Keep food hot, or cold, to ensure minimal loss in quality during delivery&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="drone-software">Drone software&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://px4.io/software/software-overview/">PX4&lt;/a>: PX4 is the firmware that runs on the Pixhawk 6c. It controls and recieves data all of the motors and sensors attached.&lt;/li>
+&lt;li>&lt;a href="http://qgroundcontrol.com/">QGroundControl&lt;/a>: QGroundControl is the application used to connect to, configure, and program the drone to fly autonomously.&lt;/li>
+&lt;li>Robot Operating System (ROS):&lt;/li>
+&lt;li>MAVSDK:&lt;/li>
+&lt;li>MAVLink:&lt;/li>
+&lt;/ul>
+&lt;h3 id="flight-simulator">Flight simulator&lt;/h3>
+&lt;p>The flight simulator will run the same software we are programming the drone with on a drone in a simulator. This will allow us to test and quickly improve our sofware without risking breaking the actual drone and taking the time to fly it.&lt;/p>
+&lt;ul>
+&lt;li>Initial testing: Gazebo&lt;/li>
+&lt;li>Complete solution: &lt;a href="https://cesium.com/platform/cesiumjs/">CesiumJS&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="obstacle-avoidance">Obstacle avoidance&lt;/h3>
+&lt;ul>
+&lt;li>OpenCV&lt;/li>
+&lt;/ul>
+&lt;p>TODO&lt;/p>
+&lt;h3 id="pre-flight-path-planning">Pre-flight path planning&lt;/h3>
+&lt;ul>
+&lt;li>OpenStreetMap&lt;/li>
+&lt;li>Photogrammetry&lt;/li>
+&lt;li>Open3D&lt;/li>
+&lt;li>Rasterio&lt;/li>
+&lt;/ul>
+&lt;h3 id="pathfinding-algorithm">Pathfinding algorithm&lt;/h3>
+&lt;p>D* will be the chosen pathfinding algorithm and will aim to be used by both the obstacle avoidance and pre-flight planning software.&lt;/p>
+&lt;h3 id="flight-control-command-pipeline">Flight control command pipeline&lt;/h3>
+&lt;p>Generate a pipeline between the software that is written by various teams and the hardware that must run the code.&lt;/p>
+&lt;ul>
+&lt;li>Interface the pixhawk with external computers.&lt;/li>
+&lt;li>Work with ROS in order to create sub-systems that interact neatly.&lt;/li>
+&lt;/ul></description></item><item><title>Wiki: Robot Arm</title><link>https://purduearc.com/wiki/active-projects/robot-arm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purduearc.com/wiki/active-projects/robot-arm/</guid><description>
 &lt;h2 id="goal">Goal&lt;/h2>
 &lt;h3 id="mission">Mission&lt;/h3>
 &lt;p>Our overarching goal is to explore why robots are limited to factory environments and why we don&amp;rsquo;t have them cooking for us and folding our clothes yet.&lt;/p>
