@@ -229,13 +229,15 @@ Interesting Actuation Methods - &lt;a href="https://www.frontiersin.org/articles
 &lt;/li>
 &lt;!-- ## References --></description></item><item><title>Wiki: Drone Delivery</title><link>https://purduearc.com/wiki/active-projects/drone-delivery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purduearc.com/wiki/active-projects/drone-delivery/</guid><description>
 &lt;h2 id="goal">Goal&lt;/h2>
-&lt;p>Given a destination, autonomously deliver a package and return with no human intervention.&lt;/p>
+&lt;p>Build and develop a drone that can be used in the applications of last-mile delivery.&lt;/p>
 &lt;h2 id="subteams">Subteams&lt;/h2>
-&lt;ul>
-&lt;li>Hardware: Designs and builds the drone, its sensors, and package container.&lt;/li>
-&lt;li>Flight controls: Programs the drone using Robot Operating System (ROS) to ingest data and fly a given path. Tests flight in the simulation software Gazebo before real-world testing.&lt;/li>
-&lt;li>Obstacle avoidance: Programs the drone to avoid obstacles in its planned flight path encountered while its flying. Uses Intel Realsense camera and its depth sensor to recognize near and far objects using computer vision and generate a 3D data structure of its surroundings.&lt;/li>
-&lt;/ul>
+&lt;ol>
+&lt;li>Hardware: Build the physical drone, develop the controls algorithm for a flight controller.&lt;/li>
+&lt;li>Obstacle Avoidance: Plan a long term route, detect obstacles, and avoid them.&lt;/li>
+&lt;li>Flight Controller: Design and build a simple flight controller using Raspberry Pi PICOs.&lt;/li>
+&lt;li>Research: Identify the latest technologies in the field that can be used by the other team.&lt;/li>
+&lt;li>Mobile App: Build a mobile app that enables users to interface with the drone.&lt;/li>
+&lt;/ol>
 &lt;h2 id="technology">Technology&lt;/h2>
 &lt;h3 id="drone-hardware">Drone hardware&lt;/h3>
 &lt;ul>
@@ -274,15 +276,10 @@ Interesting Actuation Methods - &lt;a href="https://www.frontiersin.org/articles
 &lt;li>Rated for 6S LiPo (22.2V)&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>Flight Controller: Pixhawk 6c
+&lt;li>Flight Controller: Custom controller.
 &lt;ul>
-&lt;li>H7 Processor @ 480MHZ
-&lt;ul>
-&lt;li>PX4 Firmware&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Redundant IMU&lt;/li>
-&lt;li>M8N GPS&lt;/li>
+&lt;li>Based on Raspberry PI Pico.&lt;/li>
+&lt;li>3 axis Gyro, and 3 axis acclereometer.&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>Camera: Intel RealSense D453
@@ -332,32 +329,6 @@ Interesting Actuation Methods - &lt;a href="https://www.frontiersin.org/articles
 &lt;li>Robot Operating System (ROS):&lt;/li>
 &lt;li>MAVSDK:&lt;/li>
 &lt;li>MAVLink:&lt;/li>
-&lt;/ul>
-&lt;h3 id="flight-simulator">Flight simulator&lt;/h3>
-&lt;p>The flight simulator will run the same software we are programming the drone with on a drone in a simulator. This will allow us to test and quickly improve our sofware without risking breaking the actual drone and taking the time to fly it.&lt;/p>
-&lt;ul>
-&lt;li>Initial testing: Gazebo&lt;/li>
-&lt;li>Complete solution: &lt;a href="https://cesium.com/platform/cesiumjs/">CesiumJS&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="obstacle-avoidance">Obstacle avoidance&lt;/h3>
-&lt;ul>
-&lt;li>OpenCV&lt;/li>
-&lt;/ul>
-&lt;p>TODO&lt;/p>
-&lt;h3 id="pre-flight-path-planning">Pre-flight path planning&lt;/h3>
-&lt;ul>
-&lt;li>OpenStreetMap&lt;/li>
-&lt;li>Photogrammetry&lt;/li>
-&lt;li>Open3D&lt;/li>
-&lt;li>Rasterio&lt;/li>
-&lt;/ul>
-&lt;h3 id="pathfinding-algorithm">Pathfinding algorithm&lt;/h3>
-&lt;p>D* will be the chosen pathfinding algorithm and will aim to be used by both the obstacle avoidance and pre-flight planning software.&lt;/p>
-&lt;h3 id="flight-control-command-pipeline">Flight control command pipeline&lt;/h3>
-&lt;p>Generate a pipeline between the software that is written by various teams and the hardware that must run the code.&lt;/p>
-&lt;ul>
-&lt;li>Interface the pixhawk with external computers.&lt;/li>
-&lt;li>Work with ROS in order to create sub-systems that interact neatly.&lt;/li>
 &lt;/ul></description></item><item><title>Wiki: Robot Arm</title><link>https://purduearc.com/wiki/active-projects/robot-arm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purduearc.com/wiki/active-projects/robot-arm/</guid><description>
 &lt;h2 id="goal">Goal&lt;/h2>
 &lt;h3 id="mission">Mission&lt;/h3>
