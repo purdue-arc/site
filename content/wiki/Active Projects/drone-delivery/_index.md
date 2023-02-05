@@ -2,18 +2,20 @@
 title: Drone Delivery
 weight: 3
 description: >
-    Building and programming a drone that can deliver packages
+    Developing an drone that autonomously delivers packages. 
 ---
+
 
 ## Goal
 
-Given a destination, autonomously deliver a package and return with no human intervention.
+Build and develop a drone that can be used in the applications of last-mile delivery. 
 
 ## Subteams
-
-* Hardware: Designs and builds the drone, its sensors, and package container.
-* Flight controls: Programs the drone using Robot Operating System (ROS) to ingest data and fly a given path. Tests flight in the simulation software Gazebo before real-world testing.
-* Obstacle avoidance: Programs the drone to avoid obstacles in its planned flight path encountered while its flying. Uses Intel Realsense camera and its depth sensor to recognize near and far objects using computer vision and generate a 3D data structure of its surroundings.
+1. Hardware: Build the physical drone, develop the controls algorithm for a flight controller. 
+2. Obstacle Avoidance: Plan a long term route, detect obstacles, and avoid them. 
+3. Flight Controller: Design and build a simple flight controller using Raspberry Pi PICOs. 
+4. Research: Identify the latest technologies in the field that can be used by the other team. 
+5. Mobile App: Build a mobile app that enables users to interface with the drone. 
 
 ## Technology
 
@@ -39,11 +41,9 @@ Given a destination, autonomously deliver a package and return with no human int
 * Power Delivery (ESC): xRotor 40A
   * 60A Max Current
   * Rated for 6S LiPo (22.2V)
-* Flight Controller: Pixhawk 6c
-  * H7 Processor @ 480MHZ
-    * PX4 Firmware
-  * Redundant IMU
-  * M8N GPS
+* Flight Controller: Custom controller. 
+  * Based on Raspberry PI Pico.
+  * 3 axis Gyro, and 3 axis acclereometer. 
 * Camera: Intel RealSense D453
   * Stereoscopic Depth Sensing
   * < 2% Error Within 2m
@@ -71,33 +71,3 @@ Given a destination, autonomously deliver a package and return with no human int
 * MAVSDK:
 * MAVLink:  
 
-### Flight simulator
-
-The flight simulator will run the same software we are programming the drone with on a drone in a simulator. This will allow us to test and quickly improve our sofware without risking breaking the actual drone and taking the time to fly it.
-
-* Initial testing: Gazebo
-* Complete solution: [CesiumJS](https://cesium.com/platform/cesiumjs/)
-
-### Obstacle avoidance
-
-* OpenCV
-
-TODO
-
-### Pre-flight path planning
-
-* OpenStreetMap
-* Photogrammetry
-* Open3D
-* Rasterio
-
-### Pathfinding algorithm
-
-D* will be the chosen pathfinding algorithm and will aim to be used by both the obstacle avoidance and pre-flight planning software.
-
-### Flight control command pipeline
-
-Generate a pipeline between the software that is written by various teams and the hardware that must run the code.
-
-* Interface the pixhawk with external computers.
-* Work with ROS in order to create sub-systems that interact neatly.
