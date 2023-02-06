@@ -1,4 +1,3 @@
-
 ---
 title: Fall 2022 Progress Updates.
 weight: 3
