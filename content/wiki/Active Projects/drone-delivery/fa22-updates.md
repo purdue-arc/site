@@ -1,5 +1,5 @@
 ---
-title: Fall 2022 Progress Updates.
+title: Fall 2022 Progress Updates
 weight: 3
 description: >
     A general summary of all the progress that was made in the Fall of 2022. 
@@ -49,12 +49,12 @@ The idea was to generate a occupancy grid of campus that can be used as an occup
         https://docs.google.com/document/d/1YcgpvD2AsxBpSHcqvRHN5PRzlyk0kKi2nl-Srrc2DXE/view
 
 ### Acknowledgements:
-Project Managers: Sooraj Chetput
-Obstacle Avoidance Team Members: Guna Avula (Lead), Deegan Osmundson, Chris Qiu, Ethan Baird, Mouli Sangita
-Pre-flight planning: Seth Deegan (Lead), Vincent Wang
-Research: Sreevickrant Sreekanth (Lead), Vignesh Charapalli
-Hardware: Jacob Harrelson (Lead), Evan Zher
-Interfacing: Sooraj Chetput (Lead), Atharva Bhide
+* Project Managers: Sooraj Chetput
+* Obstacle Avoidance Team Members: Guna Avula (Lead), Deegan Osmundson, Chris Qiu, Ethan Baird, Mouli Sangita
+* Pre-flight planning: Seth Deegan (Lead), Vincent Wang
+* Research: Sreevickrant Sreekanth (Lead), Vignesh Charapalli
+* Hardware: Jacob Harrelson (Lead), Evan Zher
+* Interfacing: Sooraj Chetput (Lead), Atharva Bhide
 
 
 
