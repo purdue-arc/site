@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – Drone Delivery</title><link>https://purduearc.com/wiki/active-projects/drone-delivery/</link><description>Recent content in Drone Delivery on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://purduearc.com/wiki/active-projects/drone-delivery/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: Fall 2022 Progress Updates.</title><link>https://purduearc.com/wiki/active-projects/drone-delivery/fa22-updates/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purduearc.com/wiki/active-projects/drone-delivery/fa22-updates/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – Drone Delivery</title><link>https://purduearc.com/wiki/active-projects/drone-delivery/</link><description>Recent content in Drone Delivery on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://purduearc.com/wiki/active-projects/drone-delivery/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: Fall 2022 Progress Updates</title><link>https://purduearc.com/wiki/active-projects/drone-delivery/fa22-updates/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purduearc.com/wiki/active-projects/drone-delivery/fa22-updates/</guid><description>
 &lt;h3 id="pre-flight-planning">Pre-flight Planning&lt;/h3>
 &lt;p>The idea was to generate a occupancy grid of campus that can be used as an occupancy grid.&lt;/p>
 &lt;ul>
@@ -60,12 +60,14 @@
 &lt;/li>
 &lt;/ul>
 &lt;h3 id="acknowledgements">Acknowledgements:&lt;/h3>
-&lt;p>Project Managers: Sooraj Chetput
-Obstacle Avoidance Team Members: Guna Avula (Lead), Deegan Osmundson, Chris Qiu, Ethan Baird, Mouli Sangita
-Pre-flight planning: Seth Deegan (Lead), Vincent Wang
-Research: Sreevickrant Sreekanth (Lead), Vignesh Charapalli
-Hardware: Jacob Harrelson (Lead), Evan Zher
-Interfacing: Sooraj Chetput (Lead), Atharva Bhide&lt;/p></description></item><item><title>Wiki: Pre-flight path planning</title><link>https://purduearc.com/wiki/active-projects/drone-delivery/pre-flight-path-planning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purduearc.com/wiki/active-projects/drone-delivery/pre-flight-path-planning/</guid><description>
+&lt;ul>
+&lt;li>Project Managers: Sooraj Chetput&lt;/li>
+&lt;li>Obstacle Avoidance Team Members: Guna Avula (Lead), Deegan Osmundson, Chris Qiu, Ethan Baird, Mouli Sangita&lt;/li>
+&lt;li>Pre-flight planning: Seth Deegan (Lead), Vincent Wang&lt;/li>
+&lt;li>Research: Sreevickrant Sreekanth (Lead), Vignesh Charapalli&lt;/li>
+&lt;li>Hardware: Jacob Harrelson (Lead), Evan Zher&lt;/li>
+&lt;li>Interfacing: Sooraj Chetput (Lead), Atharva Bhide&lt;/li>
+&lt;/ul></description></item><item><title>Wiki: Pre-flight path planning</title><link>https://purduearc.com/wiki/active-projects/drone-delivery/pre-flight-path-planning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purduearc.com/wiki/active-projects/drone-delivery/pre-flight-path-planning/</guid><description>
 &lt;h2 id="why">Why&lt;/h2>
 &lt;p>The drone should fly a path known not to have obstacles so that we can minimize the amount of time avoiding obstacles during its flight.&lt;/p>
 &lt;h2 id="getting-the-obstacle-data">Getting the obstacle data&lt;/h2>
