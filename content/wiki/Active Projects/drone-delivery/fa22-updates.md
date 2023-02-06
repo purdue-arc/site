@@ -16,6 +16,17 @@ The idea was to generate a occupancy grid of campus that can be used as an occup
 * Initially planned on using Octrees, but later decided not to due to the vast amount of memory that would consume. 
 * Has a separate page, which describes the stack in much greater detail.
 
+The following is the point cloud generated from OpenStreetMap.
+<img src="images/point_cloud.png" alt="cloud" width="400"/>
+
+The Octree that was generated. 
+<img src="images/octree.png" alt="tree" width="400"/>
+
+The occupancy gird that was generated.
+<img src="images/occupancy.png" alt="occupancy" width="400"/>
+
+
+
 ### Obstacle Avoidance:
 
 * Migrate the code for Realsense camera from Python → C++
@@ -25,6 +36,13 @@ The idea was to generate a occupancy grid of campus that can be used as an occup
    * There are issues in how the paths are generated, in that sometimes diagonal paths are taken over straight ones, even though the latter is possible to produce. 
    * To be improved in Spring 2023. 
 * OpenCV integration for detecting obstacles at a greater depth. 
+
+The Output from the A* algorithm we develped:
+<img src="images/astar_path.png" alt="astar" width="400"/>
+
+An example of an unideal path:
+<img src="images/sub_optimal.png" alt="erros" width="400"/>
+
 
 ### Hardware:
 * Established mission objectives, such as flight time and pay load weight.
@@ -37,6 +55,11 @@ The idea was to generate a occupancy grid of campus that can be used as an occup
 * Repaired the old drone, and interfaced a computer with it.
 * Simulated pre-programmed fight paths using Gazebo and QGroundControl. 
 * Worked on importing OpenStreetMap data into Gazebo. 
+
+<img src="images/sim.png" alt="sim" width="400"/>
+<img src="images/map.png" alt="erros" width="400"/>
+
+
 
 
 ### Research: 
