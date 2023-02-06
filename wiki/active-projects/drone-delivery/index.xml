@@ -1,4 +1,71 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – Drone Delivery</title><link>https://purduearc.com/wiki/active-projects/drone-delivery/</link><description>Recent content in Drone Delivery on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://purduearc.com/wiki/active-projects/drone-delivery/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: Pre-flight path planning</title><link>https://purduearc.com/wiki/active-projects/drone-delivery/pre-flight-path-planning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purduearc.com/wiki/active-projects/drone-delivery/pre-flight-path-planning/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – Drone Delivery</title><link>https://purduearc.com/wiki/active-projects/drone-delivery/</link><description>Recent content in Drone Delivery on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://purduearc.com/wiki/active-projects/drone-delivery/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: Fall 2022 Progress Updates.</title><link>https://purduearc.com/wiki/active-projects/drone-delivery/fa22-updates/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purduearc.com/wiki/active-projects/drone-delivery/fa22-updates/</guid><description>
+&lt;h3 id="pre-flight-planning">Pre-flight Planning&lt;/h3>
+&lt;p>The idea was to generate a occupancy grid of campus that can be used as an occupancy grid.&lt;/p>
+&lt;ul>
+&lt;li>Used OpenStreetMap to generate a isolated 3d map of campus.
+&lt;ul>
+&lt;li>&lt;a href="https://www.openstreetmap.org/#map=5/38.007/-95.844">https://www.openstreetmap.org/#map=5/38.007/-95.844&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Converted that into a 2D map using Rasterization techniques.&lt;/li>
+&lt;li>Initially planned on using Octrees, but later decided not to due to the vast amount of memory that would consume.&lt;/li>
+&lt;li>Has a separate page, which describes the stack in much greater detail.&lt;/li>
+&lt;/ul>
+&lt;h3 id="obstacle-avoidance">Obstacle Avoidance:&lt;/h3>
+&lt;ul>
+&lt;li>Migrate the code for Realsense camera from Python → C++
+&lt;ul>
+&lt;li>Able to get depth matrix&lt;/li>
+&lt;li>Can convert to occupancy matrix&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Implimenting a the D* and A* algorithms.
+&lt;ul>
+&lt;li>There are issues in how the paths are generated, in that sometimes diagonal paths are taken over straight ones, even though the latter is possible to produce.&lt;/li>
+&lt;li>To be improved in Spring 2023.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>OpenCV integration for detecting obstacles at a greater depth.&lt;/li>
+&lt;/ul>
+&lt;h3 id="hardware">Hardware:&lt;/h3>
+&lt;ul>
+&lt;li>Established mission objectives, such as flight time and pay load weight.&lt;/li>
+&lt;li>Picked a drone kit, selected baterries, motor controllers, motors and propellers.
+&lt;ul>
+&lt;li>A detailed document describing all the design choices that were made:
+&lt;a href="https://docs.google.com/document/d/1YcgpvD2AsxBpSHcqvRHN5PRzlyk0kKi2nl-Srrc2DXE/edit?usp=sharing">https://docs.google.com/document/d/1YcgpvD2AsxBpSHcqvRHN5PRzlyk0kKi2nl-Srrc2DXE/edit?usp=sharing&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Check the main page for details on what hardware components were selected.&lt;/li>
+&lt;/ul>
+&lt;h3 id="interfacing">Interfacing:&lt;/h3>
+&lt;ul>
+&lt;li>Repaired the old drone, and interfaced a computer with it.&lt;/li>
+&lt;li>Simulated pre-programmed fight paths using Gazebo and QGroundControl.&lt;/li>
+&lt;li>Worked on importing OpenStreetMap data into Gazebo.&lt;/li>
+&lt;/ul>
+&lt;h3 id="research">Research:&lt;/h3>
+&lt;ul>
+&lt;li>Over the course of the semester, the team reseached several important topics and developed whitepapers, and plan documents.
+&lt;ul>
+&lt;li>Deegan Osmundson: A* based navigation algorithms.
+&lt;a href="https://drive.google.com/file/d/1XcB0w0IvobgjAYehDYUqe3qoPYX0miRA/view">https://drive.google.com/file/d/1XcB0w0IvobgjAYehDYUqe3qoPYX0miRA/view&lt;/a>&lt;/li>
+&lt;li>Seth Deegan: Drone Delivery Tech Stack
+&lt;a href="https://docs.google.com/document/d/1ekadDu0ogtgF6m-fK_AaudN6HzlPpPMSJ_rsvxW74-M/edit#heading=h.fliy5digh3xk">https://docs.google.com/document/d/1ekadDu0ogtgF6m-fK_AaudN6HzlPpPMSJ_rsvxW74-M/edit#heading=h.fliy5digh3xk&lt;/a>&lt;/li>
+&lt;li>Sooraj Chetput: Steps in implimenting the software stack for DD.
+&lt;a href="https://drive.google.com/file/d/1RyhzLklxlVaUF0ReHZfJ17z1Qm90ic8P/view">https://drive.google.com/file/d/1RyhzLklxlVaUF0ReHZfJ17z1Qm90ic8P/view&lt;/a>&lt;/li>
+&lt;li>Jake Harrelson and several Authors: Design and Implementation of Unmanned Aerial Vehicle for Local Food Delivery
+&lt;a href="https://docs.google.com/document/d/1YcgpvD2AsxBpSHcqvRHN5PRzlyk0kKi2nl-Srrc2DXE/view">https://docs.google.com/document/d/1YcgpvD2AsxBpSHcqvRHN5PRzlyk0kKi2nl-Srrc2DXE/view&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="acknowledgements">Acknowledgements:&lt;/h3>
+&lt;p>Project Managers: Sooraj Chetput
+Obstacle Avoidance Team Members: Guna Avula (Lead), Deegan Osmundson, Chris Qiu, Ethan Baird, Mouli Sangita
+Pre-flight planning: Seth Deegan (Lead), Vincent Wang
+Research: Sreevickrant Sreekanth (Lead), Vignesh Charapalli
+Hardware: Jacob Harrelson (Lead), Evan Zher
+Interfacing: Sooraj Chetput (Lead), Atharva Bhide&lt;/p></description></item><item><title>Wiki: Pre-flight path planning</title><link>https://purduearc.com/wiki/active-projects/drone-delivery/pre-flight-path-planning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purduearc.com/wiki/active-projects/drone-delivery/pre-flight-path-planning/</guid><description>
 &lt;h2 id="why">Why&lt;/h2>
 &lt;p>The drone should fly a path known not to have obstacles so that we can minimize the amount of time avoiding obstacles during its flight.&lt;/p>
 &lt;h2 id="getting-the-obstacle-data">Getting the obstacle data&lt;/h2>
