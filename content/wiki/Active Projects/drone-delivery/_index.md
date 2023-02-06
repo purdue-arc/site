@@ -5,9 +5,7 @@ description: >
     Developing an drone that autonomously delivers packages. 
 ---
 
-
 ## Goal
-
 Build and develop a drone that can be used in the applications of last-mile delivery. 
 
 ## Subteams
@@ -71,3 +69,4 @@ Build and develop a drone that can be used in the applications of last-mile deli
 * MAVSDK:
 * MAVLink:  
 
+ 
