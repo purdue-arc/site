@@ -5,7 +5,7 @@ description: >
     A general summary of all the progress that was made in the Fall of 2022. 
 ---
 
-<img src="/wiki/active-projects/drone-delivery/images/nav_idea.png" alt="idea" width="400"/>
+<img src="images/nav_idea.png" alt="idea" width="400"/>
 
 ### Pre-flight Planning
 
