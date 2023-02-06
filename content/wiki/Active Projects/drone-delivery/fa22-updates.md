@@ -16,13 +16,8 @@ The idea was to generate a occupancy grid of campus that can be used as an occup
 * Initially planned on using Octrees, but later decided not to due to the vast amount of memory that would consume. 
 * Has a separate page, which describes the stack in much greater detail.
 
-The following is the point cloud generated from OpenStreetMap.
 <img src="images/point_cloud.png" alt="cloud" width="400"/>
-
-The Octree that was generated. 
 <img src="images/octree.png" alt="tree" width="400"/>
-
-The occupancy gird that was generated.
 <img src="images/occupancy.png" alt="occupancy" width="400"/>
 
 
@@ -37,10 +32,7 @@ The occupancy gird that was generated.
    * To be improved in Spring 2023. 
 * OpenCV integration for detecting obstacles at a greater depth. 
 
-The Output from the A* algorithm we develped:
 <img src="images/astar_path.png" alt="astar" width="400"/>
-
-An example of an unideal path:
 <img src="images/sub_optimal.png" alt="erros" width="400"/>
 
 
