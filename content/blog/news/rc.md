@@ -1,5 +1,5 @@
 ---
-title: "RobotCon Announcement"
+title: "RobotCon"
 date: 2023-02-16
 ---
 
@@ -13,7 +13,7 @@ What is RobotCon?
 Why Participate in RobotCon?
 
 As a student club:
-- A valuable opportunity to recruit talented Engineering and CS students to your club.
+- A valuable opportunity to recruit talented students to your club.
 - An exceptional platform for your members to demonstrate their work through posters, or oral presentations, and compete for awards, further elevating the visibility and recognition of your club and its projects.
 
 As a research lab:
