@@ -1,5 +1,5 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – Drone Delivery</title><link>https://purduearc.com/wiki/active-projects/drone-delivery/</link><description>Recent content in Drone Delivery on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://purduearc.com/wiki/active-projects/drone-delivery/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: Fall 2022 Progress Updates</title><link>https://purduearc.com/wiki/active-projects/drone-delivery/fa22-updates/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purduearc.com/wiki/active-projects/drone-delivery/fa22-updates/</guid><description>
-&lt;img src="../images/nav_idea.png" alt="idea" width="400"/>
+&lt;img src="https://purduearc.com/wiki/active-projects/drone-delivery/images/nav_idea.png" alt="idea" width="400"/>
 &lt;h3 id="pre-flight-planning">Pre-flight Planning&lt;/h3>
 &lt;p>The idea was to generate a occupancy grid of campus that can be used as an occupancy grid.&lt;/p>
 &lt;ul>
@@ -10,14 +10,15 @@
 &lt;/li>
 &lt;li>Converted that into a 2D map using Rasterization techniques.&lt;/li>
 &lt;li>Initially planned on using Octrees, but later decided not to due to the vast amount of memory that would consume.&lt;/li>
-&lt;li>Has a separate page, which describes the stack in much greater detail.&lt;/li>
+&lt;li>Has a separate page, which describes the stack in much greater detail.
+/wiki/active-projects/drone-delivery/images/
+The following is the point cloud generated from OpenStreetMap.
+&lt;img src="https://purduearc.com/wiki/active-projects/drone-delivery/images/point_cloud.png" alt="cloud" width="400"/>&lt;/li>
 &lt;/ul>
-&lt;p>The following is the point cloud generated from OpenStreetMap.
-&lt;img src="../images/point_cloud.png" alt="cloud" width="400"/>&lt;/p>
 &lt;p>The Octree that was generated.
-&lt;img src="../images/octree.png" alt="tree" width="400"/>&lt;/p>
+&lt;img src="https://purduearc.com/wiki/active-projects/drone-delivery/images/octree.png" alt="tree" width="400"/>&lt;/p>
 &lt;p>The occupancy gird that was generated.
-&lt;img src="../images/occupancy.png" alt="occupancy" width="400"/>&lt;/p>
+&lt;img src="https://purduearc.com/wiki/active-projects/drone-delivery/images/occupancy.png" alt="occupancy" width="400"/>&lt;/p>
 &lt;h3 id="obstacle-avoidance">Obstacle Avoidance:&lt;/h3>
 &lt;ul>
 &lt;li>Migrate the code for Realsense camera from Python → C++
@@ -35,9 +36,9 @@
 &lt;li>OpenCV integration for detecting obstacles at a greater depth.&lt;/li>
 &lt;/ul>
 &lt;p>The Output from the A* algorithm we develped:
-&lt;img src="../images/astar_path.png" alt="astar" width="400"/>&lt;/p>
+&lt;img src="https://purduearc.com/wiki/active-projects/drone-delivery/images/astar_path.png" alt="astar" width="400"/>&lt;/p>
 &lt;p>An example of an unideal path:
-&lt;img src="../images/sub_optimal.png" alt="erros" width="400"/>&lt;/p>
+&lt;img src="https://purduearc.com/wiki/active-projects/drone-delivery/images/sub_optimal.png" alt="erros" width="400"/>&lt;/p>
 &lt;h3 id="hardware">Hardware:&lt;/h3>
 &lt;ul>
 &lt;li>Established mission objectives, such as flight time and pay load weight.&lt;/li>
@@ -55,7 +56,7 @@
 &lt;li>Simulated pre-programmed fight paths using Gazebo and QGroundControl.&lt;/li>
 &lt;li>Worked on importing OpenStreetMap data into Gazebo.&lt;/li>
 &lt;/ul>
-&lt;img src="../images/sim.png" alt="sim" width="400"/>
+&lt;img src="https://purduearc.com/wiki/active-projects/drone-delivery/images/sim.png" alt="sim" width="400"/>
 &lt;h3 id="research">Research:&lt;/h3>
 &lt;ul>
 &lt;li>Over the course of the semester, the team reseached several important topics and developed whitepapers, and plan documents.
