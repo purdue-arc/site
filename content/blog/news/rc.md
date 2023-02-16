@@ -13,15 +13,15 @@ What is RobotCon?
 Why Participate in RobotCon?
 
 As a student club:
-- A valuable opportunity to recruit talented undergraduate and graduate students to your club.
-- An exceptional platform for your members to demonstrate their work through demos, posters, or oral presentations, and compete for awards, further elevating the visibility and recognition of your club and its projects.
+- A valuable opportunity to recruit talented Engineering and CS students to your club.
+- An exceptional platform for your members to demonstrate their work through posters, or oral presentations, and compete for awards, further elevating the visibility and recognition of your club and its projects.
 
 As a research lab:
 - A valuable opportunity to attract talented undergraduate and graduate students to join your lab or contribute to your area of research.
-- An exceptional platform for your students to demonstrate their work through posters or oral presentations, and compete for awards, further elevating the visibility and recognition of your lab.
+- An exceptional platform for your students to demonstrate their work through posters, or oral presentations, and compete for awards, further elevating the visibility and recognition of your lab.
  
-If this event sounds interesting to you, please take 2 minutes to answer the following Qualtrics survey by Tuesday, February 21st. **This does not represent a final decision or a commitment.**
+If this event sounds interesting to you, please take 2 minutes to answer the following Qualtrics survey by Wednesday, February 22nd. **This does not represent a final decision or a commitment.**
  
 https://purdue.ca1.qualtrics.com/jfe/form/SV_08RogL7amwafaia
  
-We look forward to your response!
+We look forward to hearing from you!
