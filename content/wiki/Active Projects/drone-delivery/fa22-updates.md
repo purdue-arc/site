@@ -5,7 +5,7 @@ description: >
     A general summary of all the progress that was made in the Fall of 2022. 
 ---
 
-<img src="images/nav_idea.png" alt="idea" width="400"/>
+<img src="../images/nav_idea.png" alt="idea" width="400"/>
 
 ### Pre-flight Planning
 
@@ -16,9 +16,14 @@ The idea was to generate a occupancy grid of campus that can be used as an occup
 * Initially planned on using Octrees, but later decided not to due to the vast amount of memory that would consume. 
 * Has a separate page, which describes the stack in much greater detail.
 
-<img src="images/point_cloud.png" alt="cloud" width="400"/>
-<img src="images/octree.png" alt="tree" width="400"/>
-<img src="images/occupancy.png" alt="occupancy" width="400"/>
+The following is the point cloud generated from OpenStreetMap.
+<img src="../images/point_cloud.png" alt="cloud" width="400"/>
+
+The Octree that was generated. 
+<img src="../images/octree.png" alt="tree" width="400"/>
+
+The occupancy gird that was generated.
+<img src="../images/occupancy.png" alt="occupancy" width="400"/>
 
 
 
@@ -32,8 +37,11 @@ The idea was to generate a occupancy grid of campus that can be used as an occup
    * To be improved in Spring 2023. 
 * OpenCV integration for detecting obstacles at a greater depth. 
 
-<img src="images/astar_path.png" alt="astar" width="400"/>
-<img src="images/sub_optimal.png" alt="erros" width="400"/>
+The Output from the A* algorithm we develped:
+<img src="../images/astar_path.png" alt="astar" width="400"/>
+
+An example of an unideal path:
+<img src="../images/sub_optimal.png" alt="erros" width="400"/>
 
 
 ### Hardware:
@@ -48,8 +56,7 @@ The idea was to generate a occupancy grid of campus that can be used as an occup
 * Simulated pre-programmed fight paths using Gazebo and QGroundControl. 
 * Worked on importing OpenStreetMap data into Gazebo. 
 
-<img src="images/sim.png" alt="sim" width="400"/>
-<img src="images/map.png" alt="erros" width="400"/>
+<img src="../images/sim.png" alt="sim" width="400"/>
 
 
 
