@@ -16,7 +16,7 @@ As a student club:
 - A valuable opportunity to recruit talented undergraduate and graduate students to your club.
 - An exceptional platform for your members to demonstrate their work through demos, posters, or oral presentations, and compete for awards, further elevating the visibility and recognition of your club and its projects.
 
-As a lab:
+As a research lab:
 - A valuable opportunity to attract talented undergraduate and graduate students to join your lab or contribute to your area of research.
 - An exceptional platform for your students to demonstrate their work through posters or oral presentations, and compete for awards, further elevating the visibility and recognition of your lab.
  
