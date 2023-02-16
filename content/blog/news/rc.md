@@ -3,6 +3,8 @@ title: "RobotCon Announcement"
 date: 2023-02-16
 ---
 
+_This post will continue to be updated as new information comes along._
+
 The Autonomous Robotics Club of Purdue is thrilled to share the news of its upcoming inaugural event, RobotCon.
  
 What is RobotCon?
