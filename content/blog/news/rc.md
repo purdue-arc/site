@@ -24,4 +24,4 @@ If this event sounds interesting to you, please take 2 minutes to answer the fol
  
 https://purdue.ca1.qualtrics.com/jfe/form/SV_08RogL7amwafaia
  
-We look forward your response!
+We look forward to your response!
