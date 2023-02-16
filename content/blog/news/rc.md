@@ -12,8 +12,8 @@ What is RobotCon?
  
 Why Participate in RobotCon?
 
-As a student club:
-- A valuable opportunity to recruit talented students to your club.
+As a student organization:
+- A valuable opportunity to recruit talented students to your org.
 - An exceptional platform for your members to demonstrate their work through posters, or oral presentations, and compete for awards, further elevating the visibility and recognition of your club and its projects.
 
 As a research lab:
