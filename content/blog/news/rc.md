@@ -6,7 +6,7 @@ date: 2023-02-16
 The Autonomous Robotics Club of Purdue is thrilled to share the news of its upcoming inaugural event, RobotCon.
  
 What is RobotCon?
-- A premier conference planned to take place in MSEE on April 7th, 2023, dedicated to exhibiting the newest innovations in robotics and autonomy.
+- A premier conference planned to take place on April 7th, 2023, dedicated to exhibiting the newest innovations in robotics and autonomy.
 - A convergence of experts from Purdue research labs, student organizations, and industry partners to demonstrate their cutting-edge innovations and explore the future of these dynamic fields.
 - An endeavor to keep Purdue University at the forefront of the growing global focus on robotics and artificial intelligence.
  
