@@ -3,9 +3,9 @@ title: "Rocket League"
 weight: 1
 date: 2022-08-04
 no_list: true
-description: Teaching cars to play soccer
+description: >
+    Teaching cars to play soccer
 ---
-
 
 ## Goal
 
@@ -37,20 +37,13 @@ This is way too high level for an overview, but it should eventually go on a dif
 The following was created Spring '21 to detail our ROS network:
 ![ROS Network](ssets/images/ros-network.png) -->
 
-### High Level Planner / Reinforcement Learning
+### High Level Planner
 
 This component uses deep reinforcement learning in order to develop strategies for playing Rocket League. It is still being prototyped in Python, using PyTorch and Keras (Tensorflow). When complete, it will recieve the full state of the game, and output a collision goal (where, when, and in what direction to hit the ball) to the Mid Level Software stack.
 
-Rocket League High-Level Planner Update:
-Our team has made significant progress in developing the High-Level Planner for the Rocket League project using deep reinforcement learning to generate game strategies. The current prototype is built in Python using Stable Baselines 3, an OpenAI deep learning library built on PyTorch and Keras (Tensorflow). It will ultimately provide instructions to the car, such as acceleration and steering direction, via radio communication.
+An end-to-end model is also being considered, which would replace all of the Mid Level Software by increasing the complexity of the High Level Planner. If built, this would exist for comparison with the existing system for learning purposes.
 
-From Fall 2021 till Spring 2023, we accomplished the following:
-- Created an initial training script that enables the training of multiple simulators in parallel for efficient performance. It uses a vectorized simulator environment, and creates a Proximal Policy Optimization model with the Stable Baselines 3 library.
-- Developed a hyperparameter tuning script that tests different combinations of network hyperparameters to find the most effective ones.
-- Created a multi-processing script that enables the simultaneous training of multiple models with different reward and environment variables.
-- Successfully trained a model to consistently score goals in one goal, overcoming issues such as riding against walls, excessive turning, and imprecise turns.
-	
-For future work, we plan to explore alternative models to PPO and train one agent to compete against another agent. We will also work on training the agent to perform well with noisy data.
+> This is a component that will see a lot of attention during the Fall 2021 semester
 
 It utilizes a simulator for training, which is described below.
 
