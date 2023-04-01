@@ -3,6 +3,7 @@ title: "RobotCon"
 date: 2023-02-16
 ---
 
+
 _This page will continue to be updated with more info._
 
 The Autonomous Robotics Club of Purdue is thrilled to share the news of its upcoming inaugural event, RISE: The 1st Robotics and Intelligent Systems Expo, planned to take place on April 15th, 2023, from 11AM-4PM in the MSEE Design Studio.
