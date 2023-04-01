@@ -3,8 +3,7 @@ title: "Rocket League"
 weight: 1
 date: 2022-08-04
 no_list: true
-description: >
-    Teaching cars to play soccer
+description: Teaching cars to play soccer
 ---
 
 
