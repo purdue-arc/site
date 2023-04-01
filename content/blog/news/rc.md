@@ -28,29 +28,3 @@ If this conference sounds interesting to you, the official registration form is 
 https://purdue.ca1.qualtrics
 
 We look forward to seeing you there!
-
-**Event structure:**
-
-**10-11AM Setup**
-*Tables / chairs will be set up
-Students with live technology demos and posters will begin to set up at the tables*
-
-**11-11:15AM Tech demos begin**
-*Event officially begins, students can come in and interact with the various robots / technology / posters being showcased at the event, and talk to the students responsible for making them. The tech / posters will be available for students to interact with for the duration of the event, with separate presentations happening in the presentation room.*
-
-**11:15-11:30PM Opening remarks**
-
-**11:30-12:25AM Block 1 (4-5 Presentations)**
-*Students may sign up to give either 5 minute or 10 minute presentations, with time for questions in between. Hard cutoffs will be enforced.*
-
-**12:30-1:30PM Lunch is served + more tech demos / interactions**
-
-**1:30-2:25PM Block 2 (4-5 Presentations)**
-
-**2:30-2:50PM Break + Activity**
-
-**2:50-3:45PM Block 3 (4-5 Presentations)**
-
-**3:50-4:00PM Closing Remarks**
-
-**4:00-4:30PM Wrap-up / Teardown / Cleanup **
