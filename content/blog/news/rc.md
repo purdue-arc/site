@@ -22,7 +22,7 @@ On behalf of your student organization:
 
 On behalf of your research lab:
 - A valuable opportunity to attract talented undergraduate and graduate students to join your lab or contribute to your area of research.
-- An exceptional platform to demonstrate your lab's work through posters or presentations, and compete for awards, further elevating the visibility and recognition of your research lab.
+- An exceptional platform to demonstrate your lab's work through posters or presentations, and compete for awards, further elevating the visibility and recognition of your lab.
 
 If this conference sounds interesting to you, the official registration form is now open! Students (undergrad or grad), are encouraged to sign up on behalf of their project/organization by Monday, April 10th, using the form below. Spaces are limited, and will be offered on a first come, first serve basis.
 
