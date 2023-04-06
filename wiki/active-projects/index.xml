@@ -101,6 +101,9 @@ TODO: include picture of car's upgrades
 &lt;p>Project GitHub Repository: &lt;a href="https://github.com/purdue-arc/arc-piano-hand">&lt;a href="https://github.com/purdue-arc/arc-piano-hand">https://github.com/purdue-arc/arc-piano-hand&lt;/a> &lt;/a>&lt;/p>
 &lt;hr>
 &lt;h2 id="what-we-have-done">What we have done&lt;/h2>
+&lt;h3 id="spring-2023">Spring 2023&lt;/h3>
+&lt;h3 id="fall-2022">Fall 2022&lt;/h3>
+&lt;p>With guidance of PhD. student mentor Sheeraz Athar, we decided to focus on the fingers hitting the keys first. So we designed and build a single-phalange-finger design that includes some curvature and bends on the fingers to make it look and feel human-like for processing. More clarity in terms of actuating the hand was also obtained, and methodologies on using specifiec file formats between different software subteams was established. A new subteam, Algorithms, was also established to work with hand and finger states as the hand is playing the piano.&lt;/p>
 &lt;h3 id="summer-2022">Summer 2022&lt;/h3>
 &lt;p>Ideated and designed new mechanisms for the hand that involves the usage of linear actuators and bevel gears. This design will be assembled and tested in Fall 2022 as a new iteration from the hand design in Spring 2022.&lt;/p>
 &lt;img src="images/summer2022_bevel.png" alt="Spring2022_Design" width="400"/>
@@ -154,7 +157,7 @@ allowfullscreen="">
 Rugved Dikay, Aeronautical and Aerospace Engineering
 &lt;/li>
 &lt;li>
-Akshay, Electrical Engineering
+Ian Ou, Computer Engineering
 &lt;/li>
 &lt;li>
 Archis Behere, Mechanical Engineering
