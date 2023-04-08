@@ -6,7 +6,7 @@ date: 2023-03-16
 
 _This page will continue to be updated with more info._
 
-We are thrilled to share the news of **RISE: The 1st Robotics and Intelligent Systems Expo by [ARC](https://www.purduearc.com/) and [ICON](https://engineering.purdue.edu/ICON)**, planned to take place in Hampton Hall (Rooms 2113-8), Saturday, April 15th, 2023, from 11AM-4PM.
+We are thrilled to share the news of **RISE: The 1st Robotics and Intelligent Systems Expo by [ARC](https://www.purduearc.com/) and [ICON](https://engineering.purdue.edu/ICON)**, planned to take place in Hampton Hall (Rooms 2113-8), Saturday, April 15th, 2023, from 11AM-3PM.
 
 What is *RISE*?
 
@@ -29,3 +29,6 @@ If this conference sounds interesting to you, the official registration form is 
 [https://forms.gle/hGWQpb8aE5EoB9Bs5](https://docs.google.com/forms/d/e/1FAIpQLSd5bpwo8BXstems2TyBOSIgnluge0ggDia_Ge_7gtt6_fGcIA/viewform?usp=sf_link)
 
 We look forward to seeing you there!
+
+**EVENT SCHEDULE:**
+<img width="657" alt="RISE Schedule" src="https://user-images.githubusercontent.com/91227447/230696810-a213538c-941b-47dc-853f-4cfa8b3ae5a7.png">
