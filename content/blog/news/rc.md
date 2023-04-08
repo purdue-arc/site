@@ -26,9 +26,11 @@ On behalf of your research lab:
 
 If this conference sounds interesting to you, the official registration form is now open! Students (undergrad or grad), are encouraged to sign up on behalf of their project/organization by Monday, April 10th, using the form below. Spaces are limited, and will be offered on a first come, first serve basis.
 
+**Registration Form:**
 [https://forms.gle/hGWQpb8aE5EoB9Bs5](https://docs.google.com/forms/d/e/1FAIpQLSd5bpwo8BXstems2TyBOSIgnluge0ggDia_Ge_7gtt6_fGcIA/viewform?usp=sf_link)
 
 We look forward to seeing you there!
 
+[RISE digital flyer](https://user-images.githubusercontent.com/91227447/230697023-293673de-b5ff-48ff-8a90-afae01d4a854.png)
 
 <img width="638" alt="Schedule" src="https://user-images.githubusercontent.com/91227447/230696866-196885f5-ad22-4804-abf3-ea5e9d7a237b.png">
