@@ -30,5 +30,5 @@ If this conference sounds interesting to you, the official registration form is 
 
 We look forward to seeing you there!
 
-**EVENT SCHEDULE:**
-<img width="657" alt="RISE Schedule" src="https://user-images.githubusercontent.com/91227447/230696810-a213538c-941b-47dc-853f-4cfa8b3ae5a7.png">
+
+<img width="638" alt="Schedule" src="https://user-images.githubusercontent.com/91227447/230696866-196885f5-ad22-4804-abf3-ea5e9d7a237b.png">
