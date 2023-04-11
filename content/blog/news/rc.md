@@ -31,6 +31,6 @@ If this conference sounds interesting to you, the official registration form is 
 
 We look forward to seeing you there!
 
-[RISE digital flyer](https://user-images.githubusercontent.com/91227447/230697023-293673de-b5ff-48ff-8a90-afae01d4a854.png)
+[RISE digital flyer](https://user-images.githubusercontent.com/91227447/231076140-510b7336-e007-49c9-a92d-c176829478d6.jpeg)
 
 <img width="638" alt="Schedule" src="https://user-images.githubusercontent.com/91227447/230696866-196885f5-ad22-4804-abf3-ea5e9d7a237b.png">
