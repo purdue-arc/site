@@ -33,4 +33,4 @@ We look forward to seeing you there!
 
 [RISE digital flyer](https://user-images.githubusercontent.com/91227447/231076140-510b7336-e007-49c9-a92d-c176829478d6.jpeg)
 
-<img width="638" alt="Schedule" src="https://user-images.githubusercontent.com/91227447/231648824-aa706189-d5f7-485c-b547-1ef464687ede.png">
+<img width="638" alt="sched2" src="https://user-images.githubusercontent.com/91227447/231661740-b41c7f7e-4afa-40fb-a2d3-4cb5ae958904.png">
