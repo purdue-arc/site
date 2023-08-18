@@ -1,0 +1,47 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Purdue ARC – Inactive Projects</title><link>https://purduearc.com/wiki/inactive-projects/</link><description>Recent content in Inactive Projects on Purdue ARC</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://purduearc.com/wiki/inactive-projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki: Robot Arm</title><link>https://purduearc.com/wiki/inactive-projects/robot-arm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://purduearc.com/wiki/inactive-projects/robot-arm/</guid><description>
+&lt;h2 id="goal">Goal&lt;/h2>
+&lt;h3 id="mission">Mission&lt;/h3>
+&lt;p>Our overarching goal is to explore why robots are limited to factory environments and why we don&amp;rsquo;t have them cooking for us and folding our clothes yet.&lt;/p>
+&lt;p>In our journey, we plan to publish our progress, tutorials, code, and workshops.&lt;/p>
+&lt;h3 id="right-now">Right now&lt;/h3>
+&lt;p>Right now, we&amp;rsquo;re building software/hardware for a robot arm to play chess.&lt;/p>
+&lt;p>From this, we hope to validate fundamental understanding of robot arm design, control (using control systems and/or reinforcement learning), sensor systems (vision, encoders, tactile), and mechanical actuator systems (servos, steppers, gearboxes).&lt;/p>
+&lt;h4 id="hardware">Hardware&lt;/h4>
+&lt;p>We currently have two hardware efforts:&lt;/p>
+&lt;ol>
+&lt;li>Designing a &lt;a href="https://wiki.purduearc.com/wiki/robot-arm/hardware#mr-janktastic">Mr. Janktastic&lt;/a> from scratch&lt;/li>
+&lt;li>Building the &lt;a href="https://wiki.purduearc.com/wiki/robot-arm/hardware#bcn3d-moveo-arm">open-source BCN3D Moveo Arm&lt;/a> for a better hardware system for software to experiment and test vision, RL systems with.&lt;/li>
+&lt;/ol>
+&lt;h4 id="software">Software&lt;/h4>
+&lt;p>Working on a variety of problems in vision, control, and high level planning (RL soon!)). See the &lt;a href="https://wiki.purduearc.com/wiki/robot-arm/software">Software Docs&lt;/a> for a deeper dive.&lt;/p>
+&lt;h2 id="what-have-we-done">What have we done?&lt;/h2>
+&lt;h3 id="may-2021">May 2021&lt;/h3>
+&lt;ul>
+&lt;li>Object detection working on chess pieces with 90%+ accuracy using YOLOv5 and usable in ROS
+&lt;ul>
+&lt;li>Put together a 500+ chess piece dataset for detection&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;img src="images/obj_det_may_21.png" alt="Object detection demo" width="400"/>
+&lt;ul>
+&lt;li>Prototype gripper fingers that can pick up chess pieces decently well&lt;/li>
+&lt;/ul>
+&lt;p>{% include googleDrivePlayer.html id=&amp;ldquo;1P8rwWDJa1Yuv88X697RMvEq04j1IgpqW/preview&amp;rdquo; %}&lt;/p>
+&lt;ul>
+&lt;li>Created Gazebo simulation that is controlled by MoveIt pipeline, including a simulated camera, chessboard, and chess pieces&lt;/li>
+&lt;/ul>
+&lt;p>{% include googleDrivePlayer.html id=&amp;ldquo;19FZ7lsqCn6DEChjjdBgsTy0feUANYaVO/preview&amp;rdquo; %}&lt;/p>
+&lt;h3 id="december-2020">December 2020&lt;/h3>
+&lt;ul>
+&lt;li>Got an early version of protoarm to stack some boxes using IK and trajectory planning from MoveIt and ROS&lt;/li>
+&lt;/ul>
+&lt;p>{% include googleDrivePlayer.html id=&amp;ldquo;1yms3OuqYp-n4JCt-yBGZg8yEyajXOj_M/preview&amp;rdquo; %}&lt;/p>
+&lt;ul>
+&lt;li>Designed a prototype 6dof arm&lt;/li>
+&lt;/ul>
+&lt;img src="images/6dof_dec_20.png" alt="6DOF arm CAD" width="200"/>
+&lt;h2 id="quick-links">Quick links&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/purdue-arc/arc_robot_arm">GitHub&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
