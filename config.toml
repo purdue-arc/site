@@ -170,10 +170,10 @@ enable = false
 [params.links]
 # End user relevant links. These will show up on left side of footer and in the community page if you have one.
 [[params.links.developer]]
-  name ="Twitter"
-  url = "https://mobile.twitter.com/purduerobotics"
-  icon = "fab fa-twitter"
-  desc = "Follow us on Twitter to get the latest news!"
+  name ="Instagram"
+  url = "https://www.instagram.com/purdue.arc"
+  icon = "fab fa-instagram"
+  desc = "Follow us on Instagram to get the latest news!"
 [[params.links.developer]]
   name = "GitHub"
   url = "https://github.com/purdue-arc"

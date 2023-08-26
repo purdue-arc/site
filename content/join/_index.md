@@ -14,10 +14,10 @@ menu:
 
 {{< /blocks/cover >}}
 
-{{% blocks/section color="primary" %}}
-{{< blocks/feature icon="fab fa-discord" title="Community Discord" url_text="Click to join" url="https://discord.gg/ddkzfD2cyu" />}}
+{{< blocks/section color="primary" >}}
+{{% blocks/feature icon="fab fa-discord" title="Community Discord" url_text="Click to join" url="https://discord.gg/ddkzfD2cyu" %}}
 This is our primary method of communication.
-{{< /blocks/feature >}}
+{{% /blocks/feature %}}
 
 
 {{% blocks/feature icon="fa-calendar" title="Google Calendar" url_text="Click to add" url="https://calendar.google.com/calendar/u/0/embed?src=8mmp47biqieqhn39slnf6rmi8s@group.calendar.google.com&ctz=America/Indiana/Indianapolis" %}}
@@ -25,6 +25,7 @@ We sometimes post upcoming events and meetings here.
 {{% /blocks/feature %}}
 
 
-{{% blocks/feature icon="fas fa-graduation-cap" title="Boilerlink" url_text="Click to join" url="https://boilerlink.purdue.edu/organization/purduearc" %}}
+{{% blocks/feature icon="fas fa-graduation-cap" title="Boilerlink" url_text="Click to join" url="https://boilerlink.purdue.edu/organization/purduearc" manualLinkTarget="_blank" %}}
 Purdue formality for joining the club.
 {{% /blocks/feature %}}
+{{< /blocks/section >}}
