@@ -23,8 +23,7 @@ Project GitHub Repository: <a href="https://github.com/purdue-arc/arc-piano-hand
 
 ## What we have done
 
-### Spring 2023
-
+### Spring 2023, Fall 2023... Coming Soon
 
 
 ### Fall 2022
